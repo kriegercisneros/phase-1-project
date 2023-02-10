@@ -1,10 +1,3 @@
-#image-container{
-    display: flex;
-    height: 400px;
-    justify-content: center;
-    margin-top: 25px;
-}
-
 body{
     background-color : #2A2D36;
     color : white;
@@ -24,17 +17,19 @@ div{
 
 #image-container {
     display: flex;
+    flex-direction: column;
     height: 400px;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 25px;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
 }
 
 #image-container img {
-    height: auto; 
+    height: auto;
     margin: 7px;
-    width: auto;
-    border: 1px solid #373943;
-    box-shadow: 1px 2px 3px 1px #0d0e11;/*change this color*/
+    filter: drop-shadow(0 0 1em #B9C6DC); 
 }
 
 img{
@@ -50,6 +45,7 @@ h1 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+    
 }
 
 #favorites-list{
@@ -58,9 +54,42 @@ h1 {
 }
 
 #favorites-list img {
-    width: 100px;
-    height: auto;
-    margin: 7px;
+    width: auto;
+    height: 200px;
+    margin: 20px;
+}
+
+#image-container div{
+        display: flex;
+        margin: 10px 0 0;
+        float: none;
+        clear: both;
+        width: 100%;
+        position: relative;
+        padding-right: 15px;
+        padding-left: 15px;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        border: 5px solid 
+        #81AEFB;
+        margin: 5px;
+}
+
+
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+    color: white
 }
 
 
@@ -128,5 +157,12 @@ div{
     line-height: 1.42857143;
     color: #333;
     background-color: #fff;
-}*/
+}
+
+this was for small shadow around images
+height: auto; 
+    margin: 7px;
+    width: auto;
+    border: 1px solid #373943;
+    box-shadow: 1px 2px 3px 1px #B9C6DC;/*change*/
 
