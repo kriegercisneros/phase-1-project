@@ -27,10 +27,14 @@ body {
 
 #global-header{
   background-image: url(global-header_bg.jpg);
-  width: 1000px;
-  height: 150px;
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+
   display : flex;
+  flex-direction: row;
 }
+
 
 #duck-display button {
   background: pink;
