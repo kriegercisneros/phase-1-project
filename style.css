@@ -1,5 +1,5 @@
 body {
-  background: lightblue;
+  background: #2A2D36;
   text-align: center;
 }
 
@@ -40,6 +40,17 @@ body {
 #search-container{
   float: left;
   width:38%;
+  
+}
+
+#search-bar{
+  background: #2A2D36;
+}
+#search-input{
+  border-color: #15418C;
+  box-sizing : border-box;
+  border-width: 3px;
+  border-style: solid;
 }
 
 #logo-container{
