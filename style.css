@@ -33,8 +33,24 @@ body {
 
   display : flex;
   flex-direction: row;
+  flex-wrap: wrap;
+
 }
 
+#search-container{
+  float: left;
+  width:38%;
+}
+
+#logo-container{
+  /* align-content: flex-end; */
+  float: right;
+  width:60%;
+}
+
+#logo-wrapper{  
+  float:right;
+}
 
 #duck-display button {
   background: pink;
