@@ -40,12 +40,13 @@ body {
 #search-container{
   float: left;
   width:38%;
-  
 }
 
 #search-bar{
   background: #2A2D36;
+  margin: 2em;
 }
+
 #search-input{
   border-color: #15418C;
   box-sizing : border-box;
@@ -54,9 +55,9 @@ body {
 }
 
 #logo-container{
-  /* align-content: flex-end; */
   float: right;
   width:60%;
+  margin-top: 5px;
 }
 
 #logo-wrapper{  
@@ -70,11 +71,6 @@ body {
   margin-top: 1em;
   padding: 0.75em;
   font-weight: bold;
-}
-
-form {
-  background: yellow;
-  margin: 2em;
 }
 
 form label {
