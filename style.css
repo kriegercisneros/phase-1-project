@@ -3,22 +3,24 @@ body {
   text-align: center;
 }
 
-#duck-nav {
+#stars {
   display: flex;
   justify-content: center;
   overflow: auto;
-  width: 100%;
+  width: 170%;
+  height: 170%;
 }
 
-#duck-nav img {
+/* #duck-nav img {
   width: 150px;
   border: solid black 2px;
   margin: 0.3em;
   border-radius: 0.5em;
-}
+} */
 
 #duck-display img {
-  height: 35vh;
+  display: flex;
+  height: 80vh;
   border: solid black 3px;
   border-radius: 3em;
 }
