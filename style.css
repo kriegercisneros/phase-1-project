@@ -25,6 +25,13 @@ body {
   border-radius: 3em;
 }
 
+#global-header{
+  background-image: url(global-header_bg.jpg);
+  width: 1000px;
+  height: 150px;
+  display : flex;
+}
+
 #duck-display button {
   background: pink;
   border: solid black 1px;
