@@ -38,7 +38,7 @@ body {
 }
 
 #search-bar{
-  background: #2A2D36;
+  /* background: #2A2D36; */
   min-width: 180px;
 
   margin: 2em;
@@ -52,7 +52,7 @@ body {
 #search-input{
   border-color: #15418C;
   box-sizing : border-box;
-  border-width: 3px;
+  border-width: 5px;
   border-style: solid;
 
 }
