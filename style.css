@@ -1,0 +1,42 @@
+body {
+  background: lightblue;
+  text-align: center;
+}
+
+#duck-nav {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  width: 100%;
+}
+
+#duck-nav img {
+  width: 150px;
+  border: solid black 2px;
+  margin: 0.3em;
+  border-radius: 0.5em;
+}
+
+#duck-display img {
+  height: 35vh;
+  border: solid black 3px;
+  border-radius: 3em;
+}
+
+#duck-display button {
+  background: pink;
+  border: solid black 1px;
+  border-radius: 0.5em;
+  margin-top: 1em;
+  padding: 0.75em;
+  font-weight: bold;
+}
+
+form {
+  background: yellow;
+  margin: 2em;
+}
+
+form label {
+  display: block;
+}
