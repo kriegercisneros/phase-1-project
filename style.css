@@ -166,3 +166,77 @@ height: auto;
     border: 1px solid #373943;
     box-shadow: 1px 2px 3px 1px #B9C6DC;/*change*/
 
+
+
+
+
+
+/*This is where Preston's css starts*/
+#stars {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    width: 170%;
+    height: 170%;
+  }
+  
+  
+  
+  #duck-display img {
+    display: flex;
+    height: 80vh;
+    border: solid black 3px;
+    border-radius: 3em;
+  }
+  
+  #global-header{
+    background-image: url(https://images.nasa.gov/images/global-header_bg.jpg);
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -8px;
+    
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
+  }
+  
+  #search-container{
+    float: left;
+    width:38%;
+  }
+  
+  #search-bar{
+    background: #2A2D36;
+    min-width: 180px;
+  
+    margin: 2em;
+  
+  }
+  
+  #search-bar label{
+    min-width: 80px;
+  }
+  
+  #search-input{
+    border-color: #15418C;
+    box-sizing : border-box;
+    border-width: 3px;
+    border-style: solid;
+  
+  }
+  
+  #logo-container{
+    float: right;
+    width:60%;
+    margin-top: 5px;
+  }
+  
+  #logo-wrapper{  
+    float:right;
+  }
+  
+  form label {
+    display: block;
+  }
+

@@ -9,23 +9,35 @@
     <title>Nasa Image Search Generator</title>
 </head>
 <body>
+    <div id="global-header">
+        <div id="search-container" class="container"> 
+  
+          <form id = "search-bar">     
+   
+            <label for="search-input"  style = "color:
+            #B9C6DC">Search Term:</label>
+            <input id = "search-input" type="text" name="duck-image-input">
+            
+            <input type="submit" value="Search">
+          </form>
+        </div>
+  
+        <div id="logo-container" class="container"> 
+           
+            <div id="logo-wrapper"> 
+                <img src="https://images.nasa.gov/images/nasa_logo-large.ee501ef4.png" id="logo" alt="nasa logo" height="88" width="107"> 
+            </div>
+  
+        </div> 
+      </div>
     <div id="form-div">
     <form>Here is My User Form
         <input type="text" id = "input-text">
         <input type="submit" value="submit" id="form-button">
-
     </form>
     <hr>
     </div>
     <div id = "page-wrapper" class=""ng-view ng-scope>
-        <!-- <header>
-            <div class = "container">
-                <div id="global-header_container" class="row">
-
-                </div>
-            </div>
-        </header> -->
-    
         <div id ="image-container">
             <img id ="detail-image" src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001465/GSFC_20171208_Archive_e001465~small.jpg">
             <div id="detail-display">
