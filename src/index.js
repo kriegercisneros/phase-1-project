@@ -8,9 +8,11 @@ let date = document.querySelector('#date');
 let p = document.querySelector('#description-display-p');
 
 //selects for user generated data
-
 const searchSubmit = document.querySelector('#search-bar');
 
+//variables for nav list of favorited images
+let nav = document.querySelector('#favorites-list')
+const favButton = document.querySelector('#saved')
 
 searchSubmit.addEventListener('submit', (event)=>{
     event.preventDefault();
@@ -39,7 +41,13 @@ function populateDataWithRandObj(obj){
     h1.innerText = randomTitle;
     h3.innerText=randomKeywords;
     p.innerText=randomDescription;
-    
+
+    favButton.addEventListener('click',(e)=>{
+        let newFav =document.createElement("img");
+        newFav.src =randomImage;
+        nav.appendChild(newFav)
+        
+    })
 }
 
 
@@ -47,8 +55,3 @@ function populateDataWithRandObj(obj){
 //variables to declare submit button and user name form for future username
 // const userName=document.querySelector('#form-div')
 // const submitButton=document.querySelector('#form-button');
-
-
-
-
-
