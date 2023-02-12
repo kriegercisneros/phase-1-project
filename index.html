@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script defer src="src/index.js"></script>
     <title>Nasa Image Search Generator</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
             #B9C6DC">Search Term:</label>
             <input id = "search-input" type="text" name="duck-image-input">
             
-            <input type="submit" value="Search">
+            <input id = "search-submit" type="submit" value="Search">
           </form>
         </div>
   
@@ -39,16 +40,16 @@
     </div>
     <div id = "page-wrapper" class=""ng-view ng-scope>
         <div id ="image-container">
-            <img id ="detail-image" src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001465/GSFC_20171208_Archive_e001465~small.jpg">
+            <img id ="detail-image" src="">
             <div id="detail-display">
-                <h1>Nebula</h1>
-                <h3>some info</h3>
-                <p>Description goes here</p>
-                <button id ="Saved">Save</button>
+                <h1 id="image-display-h1">Nebula</h1>
+                <h3 id="some-display-h3">some info</h3>
+                <p id ="description-display-p">Description goes here</p>
+                <button id ="Saved">Make Favorite</button>
             </div>
             
             <nav id="favorites-list">
-                <img src="https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001465/GSFC_20171208_Archive_e001465~small.jpg" id="1">
+                <img src="" id="1">
             </nav>
         </div>
         
@@ -56,3 +57,5 @@
 
 </body>
 </html>
+
+<!-- "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001465/GSFC_20171208_Archive_e001465~small.jpg -->
