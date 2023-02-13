@@ -1,5 +1,11 @@
 {
-    "favorites":[
-        
-      ]
+  "favorites": [
+    {
+      "image_url": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000699/GSFC_20171208_Archive_e000699~thumb.jpg",
+      "description": "This NASA/ESA Hubble Space Telescope image shows a planetary nebula named NGC 6153, located about 4,000 light-years away in the southern constellation of Scorpius (The Scorpion). The faint blue haze across the frame shows what remains of a star like the sun after it has depleted most of its fuel. When this happens, the outer layers of the star are ejected, and get excited and ionized by the energetic ultraviolet light emitted by the bright hot core of the star, forming the nebula.  NGC 6153 is a planetary nebula that is elliptical in shape, with an extremely rich network of loops and filaments, shown clearly in this Hubble image. However, this is not what makes this planetary nebula so interesting for astronomers.  Measurements show that NGC 6153 contains large amounts of neon, argon, oxygen, carbon and chlorine — up to three times more than can be found in the solar system. The nebula contains a whopping five times more nitrogen than our sun! Although it may be that the star developed higher levels of these elements as it grew and evolved, it is more likely that the star originally formed from a cloud of material that already contained a lot more of these elements.  Text credit: European Space Agency Image credit: ESA/Hubble &amp; NASA, Acknowledgement: Matej Novak  <b><a href=\"http://www.nasa.gov/audience/formedia/features/MP_Photo_Guidelines.html\" rel=\"nofollow\">NASA image use policy.</a></b>  <b><a href=\"http://www.nasa.gov/centers/goddard/home/index.html\" rel=\"nofollow\">NASA Goddard Space Flight Center</a></b> enables NASA’s mission through four scientific endeavors: Earth Science, Heliophysics, Solar System Exploration, and Astrophysics. Goddard plays a leading role in NASA’s accomplishments by contributing compelling scientific knowledge to advance the Agency’s mission.  <b>Follow us on <a href=\"http://twitter.com/NASAGoddardPix\" rel=\"nofollow\">Twitter</a></b>  <b>Like us on <a href=\"http://www.facebook.com/pages/Greenbelt-MD/NASA-Goddard/395013845897?ref=tsd\" rel=\"nofollow\">Facebook</a></b>  <b>Find us on <a href=\"http://instagrid.me/nasagoddard/?vm=grid\" rel=\"nofollow\">Instagram</a></b>",
+      "title": "Hubble View of a Nitrogen-Rich Nebula",
+      "date": "2015-06-26T15:34:26Z",
+      "id": 1
+    }
+  ]
 }

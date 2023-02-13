@@ -106,4 +106,4 @@ function deleteImageById(image){
         })
 }
 
-deleteAll()
+//deleteAll()
