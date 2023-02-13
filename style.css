@@ -71,9 +71,8 @@ h1 {
     margin: 20px;
 }
 
-
-/* wip for 3x3 flexbox */
-/* #favorites-list div{
+/* working code for a 3x3 flexbox */
+/* div#favorites-list{
     display: flex;
     margin: 10px 0 0;
     float: none;
@@ -105,75 +104,6 @@ hr {
     border-width: 1px;
     color: white
 }
-
-
-
-
-
-
-
-/*not sure what font-smoothing does*/ 
-/*body {
-    padding: 0;
-    background-color: #26282f;
-    color: #fff;
-    font-family: Arial,Helvetica,sans-serif;
-    -webkit-font-smoothing: antialiased;
-}
-/*there are some display elements in here under the body tag which might be helpful*/
-/*body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333;
-    background-color: #fff;
-}*/
-
-/*what does vh mean?*/
-/*#page-wrapper{
-    height: 100vh;
-}
-.body-wrapper .body-content{
-    clear:both;
-    padding: 10px 15px 20px;
-}
-.container {
-    width: 750 px 
-}
-.body-wrapper{
-    display:block;
-}
-header div {
-    display:block;
-}
-.container{
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-div{
-    display:block;
-}*/
-
-
-/*there are some display elements in here under the body tag which might be helpful*/
-/*body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333;
-    background-color: #fff;
-}
-this was for small shadow around images
-height: auto; 
-    margin: 7px;
-    width: auto;
-    border: 1px solid #373943;
-    box-shadow: 1px 2px 3px 1px #B9C6DC;/*change*/
-
-
-
 
 
 
