@@ -91,15 +91,24 @@ function populateDataWithRandObj(obj){
     let randomDescription = randomObject.data[0].description;
     let smRandomDescription = randomDescription.slice
         (0, randomDescription.indexOf('.'));
-
+debugger
     let spanDescription     
     let aDescription = document.createElement('a');
     aDescription.innerText = 'More';
     aDescription.href= 'www.google.com';
 
     let randomTitle = randomObject.data[0].title;
-    let randomKeywords = randomObject.data[0].keywords
+    let randomKeywords = randomObject.data[0].keywords;
+
+    randomKeywords.forEach((keyword) =>{
+        let keywordLi = document.createElement('li');
+        keywordLi.innerText = keyword;
+        h3.appendChild(keywordLi)
+    })
+
     let randomDate = randomObject.data[0]['date_created'];
+
+    
 
     currRandomImage = randomImage;
     currRandomTitle = randomTitle;
@@ -112,11 +121,11 @@ function populateDataWithRandObj(obj){
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
     image.src=randomImage;
     h1.innerText = randomTitle;
-    h3.innerText=randomKeywords;
+    // h3.innerText=randomKeywords;
     p.innerText=smRandomDescription;
     p.appendChild(aDescription)
     image.id=currRandomId
-    debugger
+    
 }
 
 favButton.addEventListener('click',(e)=>{
@@ -201,3 +210,4 @@ function makeSearch(q){
         populateDataWithRandObj(data);
     })
 }
+deleteAll()
