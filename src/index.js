@@ -65,23 +65,38 @@ function populateDataWithRandObj(obj){
 }
 
 favButton.addEventListener('click',(e)=>{
-   
+    let newFavWrap = document.createElement('div');
+    nav.appendChild(newFavWrap);
+
     let newFav =document.createElement("img");
     newFav.src = currRandomImage;
-    nav.appendChild(newFav);
+    newFavWrap.appendChild(newFav);
+
     saveToFavorites(currRandomImage, currRandomDescription, 
         currRandomTitle, currRandomDate)
 
     let deleteBtn = document.createElement("img");
     deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
-    wrap.appendChild(deleteBtn);
+    newFavWrap.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', (e)=>{
         //removes the button and the image from the favorites list
-        let targetImg = e.target.parentElement.nextElementSibling;
+        // debugger
+        let targetImg = e.target.previousElementSibling
         targetImg.remove();
-        deleteBtn.remove()
-
+        deleteBtn.remove();
+        fetch("http://localhost:3000/favorites", {
+            method:"DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept" : "application/json",
+              },
+              body: JSON.stringify({
+                image_url:`${rImage}`,
+                description:`${rDescription}`,
+                title:`${rTitle}`,
+                date:`${rDate}`,
+              }),
     })
 })
 
