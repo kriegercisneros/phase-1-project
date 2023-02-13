@@ -1,3 +1,4 @@
+
 body{
     background-color : #2A2D36;
     color : white;
@@ -59,23 +60,23 @@ h1 {
     margin: 20px;
 }
 
-#image-container div{
-        display: flex;
-        margin: 10px 0 0;
-        float: none;
-        clear: both;
-        width: 100%;
-        position: relative;
-        padding-right: 15px;
-        padding-left: 15px;
-        align-items: center;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-content: center;
-        justify-content: center;
-        border: 5px solid 
-        #81AEFB;
-        margin: 5px;
+#favorites-list div{
+    display: flex;
+    margin: 10px 0 0;
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    border: 5px solid 
+    #81AEFB;
+    margin: 5px;
 }
 
 
@@ -106,7 +107,6 @@ hr {
     font-family: Arial,Helvetica,sans-serif;
     -webkit-font-smoothing: antialiased;
 }
-
 /*there are some display elements in here under the body tag which might be helpful*/
 /*body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -120,31 +120,25 @@ hr {
 /*#page-wrapper{
     height: 100vh;
 }
-
 .body-wrapper .body-content{
     clear:both;
     padding: 10px 15px 20px;
 }
-
 .container {
     width: 750 px 
 }
-
 .body-wrapper{
     display:block;
 }
-
 header div {
     display:block;
 }
-
 .container{
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
 }
-
 div{
     display:block;
 }*/
@@ -158,7 +152,6 @@ div{
     color: #333;
     background-color: #fff;
 }
-
 this was for small shadow around images
 height: auto; 
     margin: 7px;
@@ -239,4 +232,3 @@ height: auto;
   form label {
     display: block;
   }
-
