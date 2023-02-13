@@ -18,7 +18,7 @@ searchSubmit.addEventListener('submit', (event)=>{
     event.preventDefault();
     let userInput = searchInput.value;
     let query = encodeURI(userInput);
-    console.log(query)
+    // console.log(query)
     
      fetch(`https://images-api.nasa.gov/search?q=${query}&media_type=image`)
     .then((r)=>r.json())
@@ -41,17 +41,20 @@ function populateDataWithRandObj(obj){
     h1.innerText = randomTitle;
     h3.innerText=randomKeywords;
     p.innerText=randomDescription;
-    console.log(randomKeywords)
+    // console.log(randomKeywords)
 
+    //this code works, but when I run my debugger, 
+    //JS runs the pogam three times.  Any way
+    //around this? 
     favButton.addEventListener('click',(e)=>{
-        debugger
+        // debugger
         let newFav =document.createElement("img");
         newFav.src =randomImage;
         nav.appendChild(newFav);
-        randomImage='';
-//this code works, but when I run my debugger, 
-//JS runs the pogam three times.  Any way
-//around this? 
+
+        saveToFavorites(randomImage, randomDescription, randomTitle, randomDate)
+        .then(_=>{randomImage=''})
+        
     })
 }
 
@@ -60,3 +63,20 @@ function populateDataWithRandObj(obj){
 //variables to declare submit button and user name form for future username
 // const userName=document.querySelector('#form-div')
 // const submitButton=document.querySelector('#form-button');
+
+function saveToFavorites(rImage, rDescription, rTitle, rDate){
+    fetch("http://localhost:3000/favorites", {
+        method:"POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept" : "application/json",
+          },
+          body: JSON.stringify({
+            image_url:`${rImage}`,
+            description:`${rDescription}`,
+            title:`${rTitle}`,
+            date:`${rDate}`,
+          }),
+        }).then(res=>res.json()).then(_=>{console.log(_)})  
+        
+}
