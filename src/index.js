@@ -24,6 +24,8 @@ const searchSubmit = document.querySelector('#search-bar');
 let nav = document.querySelector('#favorites-list')
 const favButton = document.querySelector('#saved')
 
+//variables to point to user Id form 
+
 searchSubmit.addEventListener('submit', (event)=>{
     event.preventDefault();
     let userInput = searchInput.value;
@@ -50,13 +52,21 @@ function populateDataWithRandObj(obj){
     let randomObject = array[Math.floor(Math.random()*array.length)]; //creates a random object from api
     let randomImage = randomObject.links[0].href; //selects link to random image
     let randomDescription = randomObject.data[0].description;
+    let smRandomDescription = randomDescription.slice
+        (0, randomDescription.indexOf('.'));
+
+    let spanDescription     
+    let aDescription = document.createElement('a');
+    aDescription.innerText = 'More';
+    aDescription.href= 'www.google.com';
+
     let randomTitle = randomObject.data[0].title;
     let randomKeywords = randomObject.data[0].keywords
     let randomDate = randomObject.data[0]['date_created'];
 
     currRandomImage = randomImage;
     currRandomTitle = randomTitle;
-    currRandomDescription = randomDescription;
+    currRandomDescription = smRandomDescription;
     currRandomDate = randomDate;
     currRandomId++; 
     console.log(currRandomId)
@@ -66,9 +76,10 @@ function populateDataWithRandObj(obj){
     image.src=randomImage;
     h1.innerText = randomTitle;
     h3.innerText=randomKeywords;
-    p.innerText=randomDescription;
+    p.innerText=smRandomDescription;
+    p.appendChild(aDescription)
     image.id=currRandomId
-
+    debugger
 }
 
 favButton.addEventListener('click',(e)=>{
@@ -125,3 +136,5 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate){
             
         })
 }
+
+
