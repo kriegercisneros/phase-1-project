@@ -1,4 +1,7 @@
 let currRandomImage;
+let currRandomDescription;
+let currRandomDate; 
+let currRandomTitle;
 //declared variables point to html elements
 let searchInput = document.querySelector('#search-input');
 let image = document.querySelector('#detail-image');
@@ -43,14 +46,17 @@ function populateDataWithRandObj(obj){
     let randomKeywords = randomObject.data[0].keywords
     let randomDate = randomObject.data[0]['date_created'];
 
-    currRandomImage = randomImage
+    currRandomImage = randomImage;
+    currRandomTitle = randomTitle;
+    currRandomDescription = randomDescription;
+    currRandomDate = randomDate;
     
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
     image.src=randomImage;
     h1.innerText = randomTitle;
     h3.innerText=randomKeywords;
     p.innerText=randomDescription;
-    console.log(randomKeywords)
+    // console.log(randomKeywords)
 
 }
 
@@ -59,9 +65,25 @@ favButton.addEventListener('click',(e)=>{
     let newFav =document.createElement("img");
     newFav.src = currRandomImage;
     nav.appendChild(newFav);
-    // randomImage='';
-    console.log(nav)
+    saveToFavorites(currRandomImage, currRandomDescription, currRandomTitle, currRandomDate)
 })
 //variables to declare submit button and user name form for future username
 // const userName=document.querySelector('#form-div')
 // const submitButton=document.querySelector('#form-button');
+
+function saveToFavorites(rImage, rDescription, rTitle, rDate){
+    fetch("http://localhost:3000/favorites", {
+        method:"POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept" : "application/json",
+          },
+          body: JSON.stringify({
+            image_url:`${rImage}`,
+            description:`${rDescription}`,
+            title:`${rTitle}`,
+            date:`${rDate}`,
+          }),
+        }).then(res=>res.json()).then(_=>{console.log(_)})  
+        
+}
