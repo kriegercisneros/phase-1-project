@@ -70,3 +70,475 @@ body {
 form label {
   display: block;
 }
+
+body{
+    background-color : #2A2D36;
+    color : white;
+    font-family : "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14 px;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+
+div{
+    display:block;
+}
+
+#image-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: space-between;
+    margin-top: 25px;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+#image-container img {
+    height: auto;
+    margin: 7px;
+    filter: drop-shadow(0 0 1em #B9C6DC); 
+}
+
+img{
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    
+}
+
+#favorites-list{
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    /* width: 100%; */
+}
+
+#favorites-list img {
+    width: auto;
+    height: 200px;
+    margin: 20px;
+}
+
+#favorites-list div{
+    display: flex;
+    margin: 10px 0 0;
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    border: 5px solid 
+    #81AEFB;
+    margin: 5px;
+}
+
+
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+    color: white
+}
+
+
+
+
+
+
+
+/*not sure what font-smoothing does*/ 
+/*body {
+    padding: 0;
+    background-color: #26282f;
+    color: #fff;
+    font-family: Arial,Helvetica,sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+/*there are some display elements in here under the body tag which might be helpful*/
+/*body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}*/
+
+/*what does vh mean?*/
+/*#page-wrapper{
+    height: 100vh;
+}
+.body-wrapper .body-content{
+    clear:both;
+    padding: 10px 15px 20px;
+}
+.container {
+    width: 750 px 
+}
+.body-wrapper{
+    display:block;
+}
+header div {
+    display:block;
+}
+.container{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+div{
+    display:block;
+}*/
+
+
+/*there are some display elements in here under the body tag which might be helpful*/
+/*body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+this was for small shadow around images
+height: auto; 
+    margin: 7px;
+    width: auto;
+    border: 1px solid #373943;
+    box-shadow: 1px 2px 3px 1px #B9C6DC;/*change*/
+
+
+
+
+
+
+/*This is where Preston's css starts*/
+#stars {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    width: 170%;
+    height: 170%;
+  }
+  
+  
+  
+  #duck-display img {
+    display: flex;
+    height: 80vh;
+    border: solid black 3px;
+    border-radius: 3em;
+  }
+  
+  #global-header{
+    background-image: url(https://images.nasa.gov/images/global-header_bg.jpg);
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -8px;
+    
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
+  }
+  
+  #search-container{
+    float: left;
+    width:38%;
+  }
+  
+  #search-bar{
+    background: #2A2D36;
+    min-width: 180px;
+  
+    margin: 2em;
+  
+  }
+  
+  #search-bar label{
+    min-width: 80px;
+  }
+  
+  #search-input{
+    border-color: #15418C;
+    box-sizing : border-box;
+    border-width: 3px;
+    border-style: solid;
+  
+  }
+  
+  #logo-container{
+    float: right;
+    width:60%;
+    margin-top: 5px;
+  }
+  
+  #logo-wrapper{  
+    float:right;
+  }
+  
+  form label {
+    display: block;
+  }
+
+body{
+    background-color : #2A2D36;
+    color : white;
+    font-family : "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14 px;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+
+div{
+    display:block;
+}
+
+#image-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: space-between;
+    margin-top: 25px;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+}
+
+#image-container img {
+    height: auto;
+    margin: 7px;
+    filter: drop-shadow(0 0 1em #B9C6DC); 
+}
+
+img{
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    
+}
+
+#favorites-list{
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    /* width: 100%; */
+}
+
+#favorites-list img {
+    width: auto;
+    height: 200px;
+    margin: 20px;
+}
+
+#favorites-list div{
+    display: flex;
+    margin: 10px 0 0;
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    border: 5px solid 
+    #81AEFB;
+    margin: 5px;
+}
+
+
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+    color: white
+}
+
+
+
+
+
+
+
+/*not sure what font-smoothing does*/ 
+/*body {
+    padding: 0;
+    background-color: #26282f;
+    color: #fff;
+    font-family: Arial,Helvetica,sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+/*there are some display elements in here under the body tag which might be helpful*/
+/*body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}*/
+
+/*what does vh mean?*/
+/*#page-wrapper{
+    height: 100vh;
+}
+.body-wrapper .body-content{
+    clear:both;
+    padding: 10px 15px 20px;
+}
+.container {
+    width: 750 px 
+}
+.body-wrapper{
+    display:block;
+}
+header div {
+    display:block;
+}
+.container{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+div{
+    display:block;
+}*/
+
+
+/*there are some display elements in here under the body tag which might be helpful*/
+/*body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+this was for small shadow around images
+height: auto; 
+    margin: 7px;
+    width: auto;
+    border: 1px solid #373943;
+    box-shadow: 1px 2px 3px 1px #B9C6DC;/*change*/
+
+
+
+
+
+
+/*This is where Preston's css starts*/
+#stars {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    width: 170%;
+    height: 170%;
+  }
+  
+  
+  
+  #duck-display img {
+    display: flex;
+    height: 80vh;
+    border: solid black 3px;
+    border-radius: 3em;
+  }
+  
+  #global-header{
+    background-image: url(https://images.nasa.gov/images/global-header_bg.jpg);
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -8px;
+    
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
+  }
+  
+  #search-container{
+    float: left;
+    width:38%;
+  }
+  
+  #search-bar{
+    background: #2A2D36;
+    min-width: 180px;
+  
+    margin: 2em;
+  
+  }
+  
+  #search-bar label{
+    min-width: 80px;
+  }
+  
+  #search-input{
+    border-color: #15418C;
+    box-sizing : border-box;
+    border-width: 3px;
+    border-style: solid;
+  
+  }
+  
+  #logo-container{
+    float: right;
+    width:60%;
+    margin-top: 5px;
+  }
+  
+  #logo-wrapper{  
+    float:right;
+  }
+  
+  form label {
+    display: block;
+  }

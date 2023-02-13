@@ -1,0 +1,18 @@
+{
+  "favorites": [
+    {
+      "image_url": "https://images-assets.nasa.gov/image/PIA18249/PIA18249~thumb.jpg",
+      "description": "This composite image shows one of the clusters, NGC 2024, which is found in the center of the so-called Flame Nebula about 1,400 light years from Earth. Astronomers have studied two star clusters using NASA Chandra and infrared telescopes.",
+      "title": "Inside the Flame Nebula",
+      "date": "2014-05-07T16:45:54Z",
+      "id": 1
+    },
+    {
+      "image_url": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000053/GSFC_20171208_Archive_e000053~thumb.jpg",
+      "description": "Astronomers have produced a highly detailed image of the Crab Nebula, by combining data from telescopes spanning nearly the entire breadth of the electromagnetic spectrum, from radio waves seen by the Karl G. Jansky Very Large Array (VLA) to the powerful X-ray glow as seen by the orbiting Chandra X-ray Observatory. And, in between that range of wavelengths, the Hubble Space Telescope's crisp visible-light view, and the infrared perspective of the Spitzer Space Telescope.  This composite image of the Crab Nebula, a supernova remnant, was assembled by combining data from five telescopes spanning nearly the entire breadth of the electromagnetic spectrum: the Very Large Array, the Spitzer Space Telescope, the Hubble Space Telescope, the XMM-Newton Observatory, and the Chandra X-ray Observatory.  Credits: NASA, ESA, NRAO/AUI/NSF and G. Dubner (University of Buenos Aires) #nasagoddard #space #science ",
+      "title": "Observatories Combine to Crack Open the Crab Nebula",
+      "date": "2017-12-08T00:00:00Z",
+      "id": 2
+    }
+  ]
+}
