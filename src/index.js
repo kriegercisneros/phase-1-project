@@ -84,6 +84,26 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate){
             title:`${rTitle}`,
             date:`${rDate}`,
           }),
-        }).then(res=>res.json()).then(_=>{console.log(_)})  
-        
+        }).then(res=>res.json())
 }
+
+function deleteAll(){
+    fetch("http://localhost:3000/favorites").then(res=>res.json()).then(arr=>{deleteImageByIdFromArray(arr)})
+}
+
+
+
+function deleteImageByIdFromArray(arr){
+    arr.forEach(element => {
+        deleteImageById(element)
+    });
+}
+
+function deleteImageById(image){
+    let id = image.id
+    fetch(`http://localhost:3000/favorites/${id}`, {
+        method:"DELETE",
+        })
+}
+
+deleteAll()
