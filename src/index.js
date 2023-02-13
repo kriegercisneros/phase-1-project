@@ -10,6 +10,11 @@ let h3 = document.querySelector('#some-display-h3');
 let date = document.querySelector('#date');
 let p = document.querySelector('#description-display-p');
 
+//buttons
+let nebula = document.querySelector("#nebula")
+let liftoff = document.querySelector("#liftoff")
+let moon = document.querySelector("#moon")
+let deleteButton = document.querySelector("#delete")
 //selects for user generated data
 const searchSubmit = document.querySelector('#search-bar');
 
@@ -31,6 +36,22 @@ searchSubmit.addEventListener('submit', (event)=>{
             populateDataWithRandObj(data);
         })
     }   
+})
+
+nebula.addEventListener('click', (e)=>{
+    makeSearch("nebula")
+})
+liftoff.addEventListener('click', (e)=>{
+    makeSearch("liftoff")
+})
+moon.addEventListener('click', (e)=>{
+    makeSearch("moon")
+})
+
+deleteButton.addEventListener('click',(e)=>{
+    deleteAll()
+    nav.innerHTML = ""
+
 })
 
 function askForInput(){
@@ -105,5 +126,17 @@ function deleteImageById(image){
         method:"DELETE",
         })
 }
+
+function makeSearch(q){
+    fetch(`https://images-api.nasa.gov/search?q=${q}&media_type=image`)
+    .then((r)=>r.json())
+    .then((data)=>{ 
+        populateDataWithRandObj(data);
+    })
+}
+
+
+
+
 
 //deleteAll()

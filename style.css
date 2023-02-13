@@ -12,6 +12,18 @@ body{
     display:block;
 } */
 
+#top-buttons{
+    display: flex;
+    flex-direction: row;
+}
+.utility-buttons{
+    height:21px;
+    margin:0px 5px;
+}
+#nebula{
+    margin-left: 20px;
+}
+
 #image-container {
     display: flex;
     flex-direction: column;
