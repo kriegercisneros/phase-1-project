@@ -1,4 +1,7 @@
-
+let currRandomImage;
+let currRandomDescription;
+let currRandomDate; 
+let currRandomTitle;
 //declared variables point to html elements
 let searchInput = document.querySelector('#search-input');
 let image = document.querySelector('#detail-image');
@@ -18,14 +21,21 @@ searchSubmit.addEventListener('submit', (event)=>{
     event.preventDefault();
     let userInput = searchInput.value;
     let query = encodeURI(userInput);
-    // console.log(query)
-    
-     fetch(`https://images-api.nasa.gov/search?q=${query}&media_type=image`)
-    .then((r)=>r.json())
-    .then((data)=>{ 
-        populateDataWithRandObj(data);
-    })
+    if(userInput === ''){
+        askForInput()
+    }
+    else{
+        fetch(`https://images-api.nasa.gov/search?q=${query}&media_type=image`)
+        .then((r)=>r.json())
+        .then((data)=>{ 
+            populateDataWithRandObj(data);
+        })
+    }   
 })
+
+function askForInput(){
+    alert("Enter a space search")
+}
 
 function populateDataWithRandObj(obj){
     let array = obj.collection.items;//an array of objects
@@ -35,6 +45,11 @@ function populateDataWithRandObj(obj){
     let randomTitle = randomObject.data[0].title;
     let randomKeywords = randomObject.data[0].keywords
     let randomDate = randomObject.data[0]['date_created'];
+
+    currRandomImage = randomImage;
+    currRandomTitle = randomTitle;
+    currRandomDescription = randomDescription;
+    currRandomDate = randomDate;
     
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
     image.src=randomImage;
@@ -43,24 +58,15 @@ function populateDataWithRandObj(obj){
     p.innerText=randomDescription;
     console.log(randomKeywords)
 
-    //this code works, but when I run my debugger, 
-    //JS runs the pogam three times.  Any way
-    //around this? 
-    favButton.addEventListener('click',(e)=>{
-        debugger
-        console.log(randomImage)
-        let newFav =document.createElement("img");
-        newFav.src =randomImage;
-        nav.appendChild(newFav);
-
-        saveToFavorites(randomImage, randomDescription, randomTitle, randomDate)
-        // .then(_=>{randomImage=''})
-        
-    })
 }
 
-
-
+favButton.addEventListener('click',(e)=>{
+    // debugger
+    let newFav =document.createElement("img");
+    newFav.src = currRandomImage;
+    nav.appendChild(newFav);
+    saveToFavorites(currRandomImage, currRandomDescription, currRandomTitle, currRandomDate)
+})
 //variables to declare submit button and user name form for future username
 // const userName=document.querySelector('#form-div')
 // const submitButton=document.querySelector('#form-button');
