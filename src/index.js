@@ -41,19 +41,20 @@ function populateDataWithRandObj(obj){
     h1.innerText = randomTitle;
     h3.innerText=randomKeywords;
     p.innerText=randomDescription;
-    // console.log(randomKeywords)
+    console.log(randomKeywords)
 
     //this code works, but when I run my debugger, 
     //JS runs the pogam three times.  Any way
     //around this? 
     favButton.addEventListener('click',(e)=>{
-        // debugger
+        debugger
+        console.log(randomImage)
         let newFav =document.createElement("img");
         newFav.src =randomImage;
         nav.appendChild(newFav);
 
         saveToFavorites(randomImage, randomDescription, randomTitle, randomDate)
-        .then(_=>{randomImage=''})
+        // .then(_=>{randomImage=''})
         
     })
 }

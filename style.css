@@ -51,6 +51,8 @@ h1 {
 #favorites-list{
     display: flex;
     justify-content: center;
+    overflow: auto;
+    /* width: 100%; */
 }
 
 #favorites-list img {
