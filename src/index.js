@@ -1,7 +1,10 @@
+//declared variables to access current object props from 
+//outside the f/n in which they are declared 
 let currRandomImage;
 let currRandomDescription;
 let currRandomDate; 
 let currRandomTitle;
+
 //declared variables point to html elements
 let searchInput = document.querySelector('#search-input');
 let image = document.querySelector('#detail-image');
@@ -9,6 +12,7 @@ let h1 = document.querySelector('#image-display-h1');
 let h3 = document.querySelector('#some-display-h3');
 let date = document.querySelector('#date');
 let p = document.querySelector('#description-display-p');
+let wrap = document.querySelector('#delete-btn-wrap');
 
 //selects for user generated data
 const searchSubmit = document.querySelector('#search-bar');
@@ -33,6 +37,7 @@ searchSubmit.addEventListener('submit', (event)=>{
     }   
 })
 
+//make this an inline function 
 function askForInput(){
     alert("Enter a space search")
 }
@@ -57,19 +62,29 @@ function populateDataWithRandObj(obj){
     h3.innerText=randomKeywords;
     p.innerText=randomDescription;
     console.log(randomKeywords)
-
 }
 
 favButton.addEventListener('click',(e)=>{
-    // debugger
+   
     let newFav =document.createElement("img");
     newFav.src = currRandomImage;
     nav.appendChild(newFav);
-    saveToFavorites(currRandomImage, currRandomDescription, currRandomTitle, currRandomDate)
+    saveToFavorites(currRandomImage, currRandomDescription, 
+        currRandomTitle, currRandomDate)
+
+    let deleteBtn = document.createElement("img");
+    deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
+    wrap.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener('click', (e)=>{
+        //removes the button and the image from the favorites list
+        let targetImg = e.target.parentElement.nextElementSibling;
+        targetImg.remove();
+        deleteBtn.remove()
+
+    })
 })
-//variables to declare submit button and user name form for future username
-// const userName=document.querySelector('#form-div')
-// const submitButton=document.querySelector('#form-button');
+
 
 function saveToFavorites(rImage, rDescription, rTitle, rDate){
     fetch("http://localhost:3000/favorites", {
