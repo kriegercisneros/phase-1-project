@@ -5,6 +5,8 @@ let currRandomDescription;
 let currRandomDate; 
 let currRandomTitle;
 
+let currRandomId = 0;
+
 //declared variables point to html elements
 let searchInput = document.querySelector('#search-input');
 let image = document.querySelector('#detail-image');
@@ -12,6 +14,7 @@ let h1 = document.querySelector('#image-display-h1');
 let h3 = document.querySelector('#some-display-h3');
 let date = document.querySelector('#date');
 let p = document.querySelector('#description-display-p');
+
 let wrap = document.querySelector('#delete-btn-wrap');
 
 //selects for user generated data
@@ -55,13 +58,17 @@ function populateDataWithRandObj(obj){
     currRandomTitle = randomTitle;
     currRandomDescription = randomDescription;
     currRandomDate = randomDate;
+    currRandomId++; 
+    console.log(currRandomId)
+    
     
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
     image.src=randomImage;
     h1.innerText = randomTitle;
     h3.innerText=randomKeywords;
     p.innerText=randomDescription;
-    console.log(randomKeywords)
+    image.id=currRandomId
+
 }
 
 favButton.addEventListener('click',(e)=>{
@@ -70,8 +77,11 @@ favButton.addEventListener('click',(e)=>{
 
     let newFav =document.createElement("img");
     newFav.src = currRandomImage;
+    newFav.id = currRandomId;
+    
     newFavWrap.appendChild(newFav);
-
+    
+    // currRandomId++
     saveToFavorites(currRandomImage, currRandomDescription, 
         currRandomTitle, currRandomDate)
 
@@ -82,21 +92,14 @@ favButton.addEventListener('click',(e)=>{
     deleteBtn.addEventListener('click', (e)=>{
         //removes the button and the image from the favorites list
         // debugger
-        let targetImg = e.target.previousElementSibling
+        let targetImg = e.target.previousElementSibling        
+       
         targetImg.remove();
         deleteBtn.remove();
-        fetch("http://localhost:3000/favorites", {
+        
+        fetch(`http://localhost:3000/favorites/${newFav.id}`, {
             method:"DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept" : "application/json",
-              },
-              body: JSON.stringify({
-                image_url:`${rImage}`,
-                description:`${rDescription}`,
-                title:`${rTitle}`,
-                date:`${rDate}`,
-              }),
+        })
     })
 })
 
@@ -106,14 +109,19 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate){
         method:"POST",
         headers: {
             "Content-Type": "application/json",
-            "Accept" : "application/json",
+            "Accept" : "application/json"
           },
           body: JSON.stringify({
             image_url:`${rImage}`,
             description:`${rDescription}`,
             title:`${rTitle}`,
-            date:`${rDate}`,
+            date:`${rDate}`
           }),
-        }).then(res=>res.json()).then(_=>{console.log(_)})  
-        
+        })
+        .then(res=>res.json())
+        .then(_=>{
+            currRandomId = _.id;
+            console.log(_.id);
+            
+        })
 }
