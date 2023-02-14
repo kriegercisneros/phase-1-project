@@ -1,3 +1,18 @@
 {
-  "favorites": []
+  "favorites": [
+    {
+      "image_url": "https://images-assets.nasa.gov/image/PIA13517/PIA13517~thumb.jpg",
+      "description": "Color of the Moo",
+      "title": "Color of the Moon",
+      "date": "2010-09-10T22:24:40Z",
+      "id": "31"
+    },
+    {
+      "image_url": "https://images-assets.nasa.gov/image/PIA13517/PIA13517~thumb.jpg",
+      "description": "Color of the Moo",
+      "title": "Color of the Moon",
+      "date": "2010-09-10T22:24:40Z",
+      "id": "32"
+    }
+  ]
 }
