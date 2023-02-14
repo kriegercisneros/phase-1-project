@@ -74,6 +74,10 @@ h1 {
     margin: 20px;
 }
 
+#favorites-list img.deleteFaveBtn{
+  width: 100px;
+  height: 100px;
+}
 
 
 #delete-btn{
@@ -82,6 +86,7 @@ h1 {
   height: 0px;
   width: auto;
 }
+
 /* working code for a 3x3 flexbox */
 /* div#favorites-list{
     display: flex;

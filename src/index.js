@@ -129,6 +129,7 @@ favButton.addEventListener('click',(e)=>{
     currRandomId++
 
     let deleteBtn = document.createElement("img");
+    deleteBtn.classList.add("deleteFaveBtn")
     deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
     newFavWrap.appendChild(deleteBtn);
 
@@ -188,6 +189,7 @@ function loadFavorite(img, id){
     let deleteBtn = document.createElement("img");
     deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
     deleteBtn.id = 'delete-btn';
+    deleteBtn.classList.add("deleteFaveBtn")
     newFavWrap.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', (e)=>{
