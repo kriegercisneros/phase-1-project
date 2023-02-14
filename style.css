@@ -9,19 +9,27 @@ body{
 
 
 /* div{
-    display:block;
+    display:flex;
 } */
 
 #top-buttons{
-    display: flex;
-    flex-direction: row;
-    text-overflow: hidden;
+  display: flex;
+  text-overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-start;
+  flex-direction: row;
   }
 
 
 .utility-buttons{
-    height:21px;
+    height:50px;
     margin:0px 5px;
+    border-radius: 15px;
+    background-color:#81AEFB;
+    color:#ECECEC;
+    border-style:hidden
+
 }
 #nebula{
     margin-left: 20px;
@@ -33,21 +41,50 @@ body{
     height: 400px;
     justify-content: space-between;
     margin-top: 25px;
+   
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
 }
 
+.fav-trash{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0px;
+  margin-bottom: 25px;
+}
+
 #image-container img {
     height: auto;
     margin: 7px;
-    filter: drop-shadow(0 0 1em #B9C6DC); 
+    filter: drop-shadow(0 0 1em #B9C6DC);
+     
 }
 /* 
 img{
     overflow-clip-margin: content-box;
     overflow: clip;
 } */
+#image-display-h1 {
+  color:#ECECEC; 
+  padding: 20px
+}
+
+#date{
+  padding:20px;
+  margin: 0px
+}
+#keywords{
+  padding: 20px; 
+  margin: 0px
+}
+#description-display-p{
+  padding: 20px
+}
 
 h1 {
     display: block;
@@ -71,12 +108,19 @@ h1 {
 #favorites-list img {
     width: auto;
     height: 150px;
-    margin: 20px;
+    margin-right: -10px;
+    margin-left: 20px
+  
 }
 
 #favorites-list img.deleteFaveBtn{
-  width: 100px;
-  height: 100px;
+  
+  display:flex; 
+  width: auto;
+  height: 50px;
+  margin: 1px;
+  float: center;
+  flex-direction:column
 }
 
 
@@ -85,6 +129,7 @@ h1 {
   justify-content: center;
   height: 0px;
   width: auto;
+  margin: 0px
 }
 
 /* working code for a 3x3 flexbox */
@@ -111,7 +156,7 @@ h1 {
 hr {
     display: block;
     unicode-bidi: isolate;
-    margin-block-start: 0.5em;
+    margin-block-start: 0px;
     margin-block-end: 0.5em;
     margin-inline-start: auto;
     margin-inline-end: auto;
@@ -119,6 +164,7 @@ hr {
     border-style: inset;
     border-width: 1px;
     color: white
+    margin: -10px
 }
 
 
@@ -132,7 +178,28 @@ hr {
     height: 170%;
   }
   
+  #saved{
+    height:50px;
+    margin:0px 5px;
+    border-radius: 15px;
+    background-color:#81AEFB;
+    color:#ECECEC;
+    border-style:hidden
+  }
   
+  #detail-display{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    background-color: 
+    
+#222528;
+    margin:-10px;
+    border-radius: 19px;
+  }
   
   #global-header{
     background-image: url(https://images.nasa.gov/images/global-header_bg.jpg);
@@ -143,6 +210,7 @@ hr {
     display : flex;
     flex-direction: row;
     flex-wrap: wrap;
+    height: 160px
   
   }
   
@@ -180,4 +248,11 @@ hr {
   
   form label {
     display: block;
+  }
+
+  #delete{
+    display:flex;
+    color:red; 
+    padding: 15px;
+    margin: 20px
   }
