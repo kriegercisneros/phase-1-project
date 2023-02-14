@@ -12,13 +12,10 @@
 <body>
     <div id="global-header">
         <div id="search-container" class="container"> 
-  
           <form id = "search-bar">     
-   
             <label for="search-input"  style = "color:
             #B9C6DC">Search Term:</label>
             <input id = "search-input" type="text" name="duck-image-input">
-            
             <input id = "search-submit" type="submit" value="Search">
           </form>
         </div>
@@ -30,35 +27,40 @@
             </div>
   
         </div> 
-     </div>
-     <div id = "top-buttons">
+<div id = "top-buttons">
         <button id = "nebula" class="utility-buttons">Nebula</button>
         <button id = "moon" class="utility-buttons">Moon</button>
         <button id = "liftoff" class="utility-buttons">Lift-Off</button>
-        <button id = "delete" class="utility-buttons">Delete All Favorites</button>
-        </div>
-     </div>
+    </div>
 
+     </div>
+     <hr>
      
-    <div id = "page-wrapper" >
+</div>
+    <!-- <div id = "page-wrapper" > -->
         <div id ="image-container">
             <img id ="detail-image" src="">
             <div id="detail-display">
                 <h1 id="image-display-h1"></h1>
                 <h2 id="date"></h2>
                 <!-- <h3 id="some-display-h3"></h3> -->
-                <h3>Keywords</h3><ul id="some-display-h3"></ul>
+                <h3 id="keywords">Keywords</h3><ul id="some-display-h3"></ul>
                 <p id ="description-display-p"></p>
-                <button id ="saved">Make Favorite</button>
+                <!-- <div id="fav-btn"> -->
+                   <button id ="saved">Make Favorite</button> 
+                   
+                <!-- </div> -->
+                
             </div>
             
-            <!-- <nav id="favorites-list"> -->            
+            <hr>      
                 <div id="favorites-list">
         
                 </div>
-        
+               
+        <button id = "delete" class="utility-buttons">Delete All Favorites</button>
         </div>
-    </div>
+    <!-- </div> -->
 
 
     
