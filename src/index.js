@@ -5,7 +5,7 @@ let currRandomDescription;
 let currRandomDate; 
 let currRandomTitle;
 
-let currRandomId = 0;
+let currRandomId = 1;
 
 //declared variables point to html elements
 let searchInput = document.querySelector('#search-input');
@@ -63,21 +63,7 @@ deleteButton.addEventListener('click',(e)=>{
 
 })
 
-nebula.addEventListener('click', (e)=>{
-    makeSearch("nebula")
-})
-liftoff.addEventListener('click', (e)=>{
-    makeSearch("liftoff")
-})
-moon.addEventListener('click', (e)=>{
-    makeSearch("moon")
-})
 
-deleteButton.addEventListener('click',(e)=>{
-    deleteAll()
-    nav.innerHTML = ""
-
-})
 
 //make this an inline function 
 function askForInput(){
@@ -105,8 +91,8 @@ function populateDataWithRandObj(obj){
     currRandomTitle = randomTitle;
     currRandomDescription = smRandomDescription;
     currRandomDate = randomDate;
-    currRandomId++; 
-    console.log(currRandomId)
+    //currRandomId++; 
+    // console.log(currRandomId)
     
     
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
@@ -115,8 +101,8 @@ function populateDataWithRandObj(obj){
     h3.innerText=randomKeywords;
     p.innerText=smRandomDescription;
     p.appendChild(aDescription)
-    image.id=currRandomId
-    debugger
+    // image.id=currRandomId
+    
 }
 
 favButton.addEventListener('click',(e)=>{
@@ -125,13 +111,14 @@ favButton.addEventListener('click',(e)=>{
 
     let newFav =document.createElement("img");
     newFav.src = currRandomImage;
+    console.log("ID added to new image"+currRandomId)
     newFav.id = currRandomId;
     
     newFavWrap.appendChild(newFav);
     
-    // currRandomId++
     saveToFavorites(currRandomImage, currRandomDescription, 
-        currRandomTitle, currRandomDate)
+        currRandomTitle, currRandomDate, newFav.id)
+    currRandomId++
 
     let deleteBtn = document.createElement("img");
     deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
@@ -152,8 +139,8 @@ favButton.addEventListener('click',(e)=>{
 })
 
 
-function saveToFavorites(rImage, rDescription, rTitle, rDate){
-    fetch("http://localhost:3000/favorites", {
+function saveToFavorites(rImage, rDescription, rTitle, rDate, setId){
+    return fetch("http://localhost:3000/favorites", {
         method:"POST",
         headers: {
             "Content-Type": "application/json",
@@ -163,23 +150,63 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate){
             image_url:`${rImage}`,
             description:`${rDescription}`,
             title:`${rTitle}`,
-            date:`${rDate}`
+            date:`${rDate}`, 
+            id:setId,
           }),
         })
         .then(res=>res.json())
-        .then(_=>{
-            currRandomId = _.id;
-            console.log(_.id);
-            
-        })
         
+}
+
+
+function loadFavorite(img, id){
+    let newFavWrap = document.createElement('div');
+    nav.appendChild(newFavWrap);
+
+    let newFav =document.createElement("img");
+    newFav.src = img;
+    newFav.id = id;
+    
+    newFavWrap.appendChild(newFav);
+
+    let deleteBtn = document.createElement("img");
+    deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
+    newFavWrap.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener('click', (e)=>{
+        //removes the button and the image from the favorites list
+        // debugger
+        let targetImg = e.target.previousElementSibling        
+       
+        targetImg.remove();
+        deleteBtn.remove();
+        
+        fetch(`http://localhost:3000/favorites/${newFav.id}`, {
+            method:"DELETE",
+        })
+    })
+
+}
+
+
+function loadFavoritesArray(arr){
+    arr.forEach(fave=>{
+        let image = fave.image_url;
+        let id = fave.id;
+        loadFavorite(image,id);
+    })
+    currRandomId = parseInt(arr[arr.length - 1].id) + 1
+    console.log("-"+currRandomId+"-")
+}
+
+
+function loadFavoritesFromDatabase(){
+    fetch("http://localhost:3000/favorites").then(res=>res.json()).then(arr=>{loadFavoritesArray(arr);console.log(arr)})
 }
 
 function deleteAll(){
     fetch("http://localhost:3000/favorites").then(res=>res.json()).then(arr=>{deleteImageByIdFromArray(arr)})
 }
-
-
 
 function deleteImageByIdFromArray(arr){
     arr.forEach(element => {
@@ -187,8 +214,8 @@ function deleteImageByIdFromArray(arr){
     });
 }
 
-function deleteImageById(image){
-    let id = image.id
+function deleteImageById(img){
+    let id = img.id
     fetch(`http://localhost:3000/favorites/${id}`, {
         method:"DELETE",
         })
@@ -201,3 +228,7 @@ function makeSearch(q){
         populateDataWithRandObj(data);
     })
 }
+
+loadFavoritesFromDatabase()
+makeSearch("nebula")
+//deleteAll()
