@@ -129,6 +129,7 @@ favButton.addEventListener('click',(e)=>{
     currRandomId++
 
     let deleteBtn = document.createElement("img");
+    deleteBtn.classList.add("deleteFaveBtn")
     deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
     newFavWrap.appendChild(deleteBtn);
 
@@ -177,6 +178,7 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate, setId){
 
 function loadFavorite(img, id){
     let newFavWrap = document.createElement('div');
+    newFavWrap.classList.add('fav-trash')
     nav.appendChild(newFavWrap);
 
     let newFav =document.createElement("img");
@@ -188,6 +190,7 @@ function loadFavorite(img, id){
     let deleteBtn = document.createElement("img");
     deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
     deleteBtn.id = 'delete-btn';
+    deleteBtn.classList.add("deleteFaveBtn")
     newFavWrap.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', (e)=>{
@@ -230,6 +233,8 @@ function loadFavoritesArray(arr){
 function loadFavoritesFromDatabase(){
     fetch("http://localhost:3000/favorites").then(res=>res.json()).then(arr=>{loadFavoritesArray(arr);console.log(arr)})
 }
+
+ 
 
 function deleteAll(){
     fetch("http://localhost:3000/favorites").then(res=>res.json()).then(arr=>{deleteImageByIdFromArray(arr)})
