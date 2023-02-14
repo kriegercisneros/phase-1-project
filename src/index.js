@@ -195,7 +195,12 @@ function loadFavoritesArray(arr){
         let id = fave.id;
         loadFavorite(image,id);
     })
+    if (arr.length !== 0){
     currRandomId = parseInt(arr[arr.length - 1].id) + 1
+    }
+    else{
+        currRandomId = 1
+    }
     console.log("-"+currRandomId+"-")
 }
 
