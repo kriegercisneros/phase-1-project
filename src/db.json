@@ -1,3 +1,18 @@
 {
-  "favorites": []
+  "favorites": [
+    {
+      "image_url": "https://images-assets.nasa.gov/image/0300724/0300724~thumb.jpg",
+      "description": "Some 5,000 light years (2,900 trillion miles) from Earth, in the constellation Puppis, is the 1",
+      "title": "History of Hubble Space Telescope (HST)",
+      "date": "2001-08-24T00:00:00Z",
+      "id": "2"
+    },
+    {
+      "image_url": "https://images-assets.nasa.gov/image/0300724/0300724~thumb.jpg",
+      "description": "Some 5,000 light years (2,900 trillion miles) from Earth, in the constellation Puppis, is the 1",
+      "title": "History of Hubble Space Telescope (HST)",
+      "date": "2001-08-24T00:00:00Z",
+      "id": "3"
+    }
+  ]
 }

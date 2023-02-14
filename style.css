@@ -15,7 +15,10 @@ body{
 #top-buttons{
     display: flex;
     flex-direction: row;
-}
+    text-overflow: hidden;
+  }
+
+
 .utility-buttons{
     height:21px;
     margin:0px 5px;
@@ -67,7 +70,7 @@ h1 {
 
 #favorites-list img {
     width: auto;
-    height: 200px;
+    height: 150px;
     margin: 20px;
 }
 
@@ -136,11 +139,8 @@ hr {
   }
   
   #search-bar{
-    background: #2A2D36;
-    min-width: 180px;
-  
+    min-width: 180px;  
     margin: 2em;
-  
   }
   
   #search-bar label{
