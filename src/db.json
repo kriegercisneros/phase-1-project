@@ -1,25 +1,3 @@
 {
-  "favorites": [
-    {
-      "image_url": "https://images-assets.nasa.gov/image/PIA00405/PIA00405~thumb.jpg",
-      "description": "NASA Galileo spacecraft took this image of Earth moon on December 7, 1992 on its way to explore the Jupiter system in 1995-97",
-      "title": "Earth Moon",
-      "date": "1998-06-08T15:17:56Z",
-      "id": 1
-    },
-    {
-      "image_url": "https://images-assets.nasa.gov/image/PIA25012/PIA25012~thumb.jpg",
-      "description": "This look at the complex surface of Jupiter's moon Ganymede came from NASA's Juno mission during a close pass by the giant moon in June 2021",
-      "title": "A Striking Crater on Jupiter's Moon Ganymede",
-      "date": "2022-02-22T00:00:00Z",
-      "id": 2
-    },
-    {
-      "image_url": "https://images-assets.nasa.gov/image/PIA14579/PIA14579~thumb.jpg",
-      "description": "A quartet of Saturn moons, from tiny to huge, surround and are embedded within the planet rings in this Cassini composition",
-      "title": "In, Around, Beyond Rings",
-      "date": "2011-10-24T12:58:00Z",
-      "id": 3
-    }
-  ]
+  "favorites": []
 }

@@ -17,11 +17,6 @@ let p = document.querySelector('#description-display-p');
 
 let wrap = document.querySelector('#delete-btn-wrap');
 
-//buttons
-let nebula = document.querySelector("#nebula")
-let liftoff = document.querySelector("#liftoff")
-let moon = document.querySelector("#moon")
-let deleteButton = document.querySelector("#delete")
 //selects for user generated data
 const searchSubmit = document.querySelector('#search-bar');
 
@@ -29,7 +24,11 @@ const searchSubmit = document.querySelector('#search-bar');
 let nav = document.querySelector('#favorites-list')
 const favButton = document.querySelector('#saved')
 
-//variables to point to user Id form 
+//buttons for quick random searches
+let nebula = document.querySelector("#nebula")
+let liftoff = document.querySelector("#liftoff")
+let moon = document.querySelector("#moon")
+let deleteButton = document.querySelector("#delete")
 
 searchSubmit.addEventListener('submit', (event)=>{
     event.preventDefault();
@@ -47,6 +46,7 @@ searchSubmit.addEventListener('submit', (event)=>{
     }   
 })
 
+//event listeners for top div buttons
 nebula.addEventListener('click', (e)=>{
     makeSearch("nebula")
 })
@@ -60,23 +60,6 @@ moon.addEventListener('click', (e)=>{
 deleteButton.addEventListener('click',(e)=>{
     deleteAll()
     nav.innerHTML = ""
-
-})
-
-nebula.addEventListener('click', (e)=>{
-    makeSearch("nebula")
-})
-liftoff.addEventListener('click', (e)=>{
-    makeSearch("liftoff")
-})
-moon.addEventListener('click', (e)=>{
-    makeSearch("moon")
-})
-
-deleteButton.addEventListener('click',(e)=>{
-    deleteAll()
-    nav.innerHTML = ""
-
 })
 
 //make this an inline function 
@@ -91,65 +74,61 @@ function populateDataWithRandObj(obj){
     let randomDescription = randomObject.data[0].description;
     let smRandomDescription = randomDescription.slice
         (0, randomDescription.indexOf('.'));
-debugger
+
     let spanDescription     
     let aDescription = document.createElement('a');
     aDescription.innerText = 'More';
     aDescription.href= 'www.google.com';
 
     let randomTitle = randomObject.data[0].title;
-    let randomKeywords = randomObject.data[0].keywords;
-
-    randomKeywords.forEach((keyword) =>{
-        let keywordLi = document.createElement('li');
-        keywordLi.innerText = keyword;
-        h3.appendChild(keywordLi)
-    })
-
+    let randomKeywords = randomObject.data[0].keywords
     let randomDate = randomObject.data[0]['date_created'];
-
-    
 
     currRandomImage = randomImage;
     currRandomTitle = randomTitle;
     currRandomDescription = smRandomDescription;
     currRandomDate = randomDate;
-    currRandomId++; 
+    currRandomId++;
     console.log(currRandomId)
     
     
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
     image.src=randomImage;
     h1.innerText = randomTitle;
-    // h3.innerText=randomKeywords;
+    h3.innerText=randomKeywords;
     p.innerText=smRandomDescription;
     p.appendChild(aDescription)
-    image.id=currRandomId
-    
+    image.id=`Main-Image-${currRandomId}`
+    // debugger
 }
+
+
 
 favButton.addEventListener('click',(e)=>{
     let newFavWrap = document.createElement('div');
     nav.appendChild(newFavWrap);
 
+
     let newFav =document.createElement("img");
     newFav.src = currRandomImage;
     newFav.id = currRandomId;
+    newFav.classList = "fav-elements"
     
     newFavWrap.appendChild(newFav);
-    
-    // currRandomId++
+
     saveToFavorites(currRandomImage, currRandomDescription, 
         currRandomTitle, currRandomDate)
 
     let deleteBtn = document.createElement("img");
-    deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
+    deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png";
+    deleteBtn.classList ="delete-btn";
+    deleteBtn.id = `delete-btn-${currRandomId}` 
     newFavWrap.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', (e)=>{
         //removes the button and the image from the favorites list
         // debugger
-        let targetImg = e.target.previousElementSibling        
+        let targetImg = e.target.previousElementSibling//this is the image associated with the traash can        
        
         targetImg.remove();
         deleteBtn.remove();
@@ -157,6 +136,13 @@ favButton.addEventListener('click',(e)=>{
         fetch(`http://localhost:3000/favorites/${newFav.id}`, {
             method:"DELETE",
         })
+    })
+    deleteBtn.addEventListener('mouseover', (event)=>{
+        
+        deleteBtn.src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png";
+    })
+    deleteBtn.addEventListener('mouseout', (event)=>{
+        deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png"
     })
 })
 
@@ -177,17 +163,17 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate){
         })
         .then(res=>res.json())
         .then(_=>{
+            console.log("This is before the function" + _.id)
             currRandomId = _.id;
-            console.log(_.id);
+            console.log("This is the posted id " + currRandomId);
             
         })
-        
 }
+
 
 function deleteAll(){
     fetch("http://localhost:3000/favorites").then(res=>res.json()).then(arr=>{deleteImageByIdFromArray(arr)})
 }
-
 
 
 function deleteImageByIdFromArray(arr){

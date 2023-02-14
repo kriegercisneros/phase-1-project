@@ -71,6 +71,11 @@ h1 {
     margin: 20px;
 }
 
+
+.delete-btn{
+  height: 75px;
+  width: auto;
+}
 /* working code for a 3x3 flexbox */
 /* div#favorites-list{
     display: flex;
