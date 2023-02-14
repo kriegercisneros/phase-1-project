@@ -178,6 +178,7 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate, setId){
 
 function loadFavorite(img, id){
     let newFavWrap = document.createElement('div');
+    newFavWrap.classList.add('fav-trash')
     nav.appendChild(newFavWrap);
 
     let newFav =document.createElement("img");
