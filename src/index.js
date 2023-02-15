@@ -36,7 +36,9 @@ const searchSubmit = document.querySelector('#search-bar');
 let nav = document.querySelector('#favorites-list')
 const favButton = document.querySelector('#saved')
 
-//variables to point to user Id form 
+let spanPoints = document.querySelector('#points');
+let moreText = document.querySelector('#more-text');
+let moreTextDisplayed = document.querySelector('#more-text-displayed');
 
 searchSubmit.addEventListener('submit', (event)=>{
     event.preventDefault();
@@ -69,10 +71,6 @@ deleteButton.addEventListener('click',(e)=>{
     nav.innerHTML = ""
 
 })
-
-
-
-
 //make this an inline function 
 function askForInput(){
     alert("Enter a space search")
@@ -99,43 +97,51 @@ function populateDataWithRandObj(obj){
     let randomDescription = randomObject.data[0].description;
     let articleId = randomObject.data[0].nasa_id
     let articleLink = `https://images.nasa.gov/details-${articleId}`
+    
+    let randomTitle = randomObject.data[0].title;
+    let randomDate = randomObject.data[0]['date_created'];
+    let randomKeywords = randomObject.data[0].keywords;
+
     console.log(articleLink)
     updateMediaLinks(randomImage)
-//working on code for a more button for the description
 
-    // let smRandomDescription = randomDescription.slice
-    // (0, randomDescription.indexOf('.'));
-    // let spanDescription     
-    // let aDescription = document.createElement('a');
-    // aDescription.innerText = 'More';
-    // aDescription.href= 'www.google.com';
-
-    let randomTitle = randomObject.data[0].title;
-    
-    let randomKeywords = randomObject.data[0].keywords
     randomKeywords.forEach((keyword) =>{
         let keywordLi = document.createElement('li');
         keywordLi.innerText = keyword;
-        h3.appendChild(keywordLi)
-        
+        h3.appendChild(keywordLi) 
     })
-
-    let randomDate = randomObject.data[0]['date_created'];
 
     currRandomImage = randomImage;
     currRandomTitle = randomTitle;
     currRandomDescription = randomDescription;
     currRandomDate = randomDate;
-    
-    
+
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
     image.src=randomImage;
     h1.innerText = randomTitle;
-    p.innerText=randomDescription;
-    // p.appendChild(aDescription)
+    p.innerText = `${randomDescription.slice(0, 200)}...` 
 
-    
+    moreText.addEventListener('click', (e)=>{
+        toggleText()
+    })    
+
+    function toggleText(){
+        if (moreText.innerText ==="show more") {
+            moreTextDisplayed.innerText = randomDescription;
+            moreTextDisplayed.style.display = "inline";
+            p.style.display ='none'
+            moreText.innerText = "show less";
+            console.log(moreText.innerText)
+        }
+        else {
+            moreTextDisplayed.style.display = "none";
+            p.innerText = `${randomDescription.slice(0, 200)}...`;
+            p.style.display="inline";
+            moreText.innerText="show more";
+        }    
+    }
 }
+
 
 favButton.addEventListener('click',(e)=>{
     let newFavWrap = document.createElement('div');
@@ -143,8 +149,8 @@ favButton.addEventListener('click',(e)=>{
 
     let newFav =document.createElement("img");
     newFav.src = currRandomImage;
-    console.log("ID added to new image"+currRandomId)
     newFav.id = currRandomId;
+    newFav.classList.add('fav-images');
     
     newFavWrap.appendChild(newFav);
     
@@ -161,7 +167,6 @@ favButton.addEventListener('click',(e)=>{
         //removes the button and the image from the favorites list
 
         let targetImg = e.target.previousElementSibling        
-       
         targetImg.remove();
         deleteBtn.remove();
         
@@ -172,6 +177,7 @@ favButton.addEventListener('click',(e)=>{
 
     deleteBtn.addEventListener('mouseover', (event)=>{
         deleteBtn.src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png";
+        
     })
     deleteBtn.addEventListener('mouseout', (event)=>{
         deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png"
@@ -250,7 +256,6 @@ function loadFavoritesArray(arr){
     else{
         currRandomId = 1
     }
-    console.log(currRandomId)
 }
 
 
