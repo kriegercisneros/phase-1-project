@@ -8,10 +8,6 @@ body{
 }
 
 
-/* div{
-    display:flex;
-} */
-
 #top-buttons{
   display: flex;
   text-overflow: hidden;
