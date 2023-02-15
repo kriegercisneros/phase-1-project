@@ -183,7 +183,10 @@ function makingFavorite(img, id, doRandom){
     }
     
     newFav.classList.add('fav-images');
-    
+    newFav.addEventListener('click', (e)=>{
+        displayFavoriteImageByIdFromDatabase(newFav.id)
+    })
+
     newFavWrap.appendChild(newFav);
 
     let deleteBtn = document.createElement("img");
@@ -267,6 +270,22 @@ function makeSearch(q){
     .then((data)=>{ 
         populateDataWithRandObj(data);
     })
+}
+
+function displayFavoriteImageByIdFromDatabase(id){
+    fetch(`http://localhost:3000/favorites/${id}`).then(res=>res.json()).then(img =>{displayFavoriteImage(img);})
+}
+
+function displayFavoriteImage(im){
+    // currRandomTitle = image.title;
+    // currRandomDate = image.date;
+    // currRandomImage = image.image_url;
+    // currRandomDescription = image.description;
+
+    date.innerText = `Date Photograph Captured: ${im.date.slice(0,10)}`;
+    image.src=im.image_url;
+    h1.innerText = im.title;
+    p.innerText = `${im.description.slice(0, 200)}...`
 }
 
 loadFavoritesFromDatabase();
