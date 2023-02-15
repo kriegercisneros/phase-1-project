@@ -87,7 +87,6 @@ h1 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-    
 }
 
 #favorites-list{
@@ -95,7 +94,6 @@ h1 {
     justify-content: center;
     width:100%;
     flex-wrap: wrap;
-
 }
 
 #favorites-list img {
@@ -135,7 +133,6 @@ h1 {
   margin: 0px
 }
 
-
 hr {
     display: block;
     unicode-bidi: isolate;
@@ -173,9 +170,7 @@ hr {
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
-    background-color: 
-    
-#222528;
+    background-color:#222528;
     margin:-10px;
     border-radius: 19px;
   }
@@ -246,8 +241,4 @@ hr {
     color:purple; 
     padding: 15px;
     margin: 20px
-  }
-
-  .share-button{
-    img
   }

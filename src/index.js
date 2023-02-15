@@ -17,13 +17,13 @@ let p = document.querySelector('#description-display-p');
 
 let wrap = document.querySelector('#delete-btn-wrap');
 
-//buttons
+//dom pointers to buttons for random searches
 let nebula = document.querySelector("#nebula")
 let liftoff = document.querySelector("#liftoff")
 let moon = document.querySelector("#moon")
 let deleteButton = document.querySelector("#delete")
 
-//Social media
+//dom pointers to Social media links
 let twitter = document.querySelector("#twitter")
 let facebook = document.querySelector("#facebook")
 let linkedin = document.querySelector("#linkedin")
@@ -35,7 +35,6 @@ const searchSubmit = document.querySelector('#search-bar');
 //variables for nav list of favorited images
 let nav = document.querySelector('#favorites-list')
 const favButton = document.querySelector('#saved')
-
 
 let moreText = document.querySelector('#more-text');
 let moreTextDisplayed = document.querySelector('#more-text-displayed');
@@ -80,7 +79,7 @@ function askForInput(){
     alert("Enter a space search")
 }
 
-
+//functionality for populating references to social media button
 function updateMediaLinks(imgUrl){
     console.log(imgUrl)
     facebook.href =`https://www.facebook.com/sharer/sharer.php?u=${imgUrl}` 
@@ -94,7 +93,8 @@ function updateMediaLinks(imgUrl){
     
 }
 
-//this is the function that shows the user info from Nasa API
+//this is the function that shows the user info from Nasa API,
+//  and also from clicking on a fav image
 function populateDataWithRandObj(obj){
     let array = obj.collection.items;//an array of objects
     let randomObject = array[Math.floor(Math.random()*array.length)]; //creates a random object from api
@@ -130,6 +130,7 @@ function populateDataWithRandObj(obj){
         toggleText()
     })    
 
+    //helps the user see more or less of the description 
     function toggleText(){
         if (moreText.innerText ==="show more") {
             moreTextDisplayed.innerText = randomDescription;
@@ -147,7 +148,7 @@ function populateDataWithRandObj(obj){
     }
 }
 
-//pushes the favorites to db.json, which is hidded on GitHub
+//pushes the favorites to db.json, which is hid on GitHub
 function saveToFavorites(rImage, rDescription, rTitle, rDate, setId){
     return fetch("http://localhost:3000/favorites", {
         method:"POST",
@@ -166,8 +167,11 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate, setId){
         .then(res=>res.json())  
 }
 
+//popluates the favorite cards on the bottom of the screen
+    //can perform one card at a time 
+    //or can populate all cards at once upon a refresh with the doRandom
+    //parameter
 function makingFavorite(img, id, doRandom){
-
     let newFavWrap = document.createElement('div');
     newFavWrap.classList.add('fav-trash');
     nav.appendChild(newFavWrap);
@@ -194,6 +198,7 @@ function makingFavorite(img, id, doRandom){
     deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
     newFavWrap.appendChild(deleteBtn);
 
+    //deletes one card from our favorites array 
     deleteBtn.addEventListener('click', (e)=>{
         //removes the button and the image from the favorites list
 
@@ -205,6 +210,8 @@ function makingFavorite(img, id, doRandom){
             method:"DELETE",
         })
     })
+
+    //sweet functionality for the favorited image and trashcan
     deleteBtn.addEventListener('mouseover', (event)=>{
         deleteBtn.src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png";
         
@@ -216,12 +223,17 @@ function makingFavorite(img, id, doRandom){
 }
 
 favButton.addEventListener('click', ()=>{
+    //this references the returned newFav.id (line222) from our makingFavorite function 
     let makingFavoriteId = makingFavorite("y","x",true);
+    
     saveToFavorites(currRandomImage, currRandomDescription, 
         currRandomTitle, currRandomDate, makingFavoriteId);
+    //allows the next assigned ID to be incremented by one 
+    //necessary to call here
     currRandomId++
 })
 
+//populates favorited images from loadFavoritesFromDatabase
 function loadFavoritesArray(arr){
     arr.forEach(fave=>{
         let image = fave.image_url;
@@ -236,20 +248,23 @@ function loadFavoritesArray(arr){
     }
 }
 
+//calls to db.json to fetch favorited images 
 function loadFavoritesFromDatabase(){
     fetch("http://localhost:3000/favorites")
     .then(res=>res.json())
     .then(arr1=>{
         loadFavoritesArray(arr1);
-        console.log(arr1)})
+        })
 }
 
+//deletes all images in favorites array
 function deleteAll(){
     fetch("http://localhost:3000/favorites")
     .then(res=>res.json())
     .then(arr=>{
         deleteImageByIdFromArray(arr)})
 }
+
 
 function deleteImageByIdFromArray(arr){
     arr.forEach(element => {
@@ -264,6 +279,7 @@ function deleteImageById(img){
         })
 }
 
+//helper function for our search buttons up top 
 function makeSearch(q){
     fetch(`https://images-api.nasa.gov/search?q=${q}&media_type=image`)
     .then((r)=>r.json())
@@ -272,16 +288,13 @@ function makeSearch(q){
     })
 }
 
+//allow user to click on an image and see the info displayed 
+//in the main display section
 function displayFavoriteImageByIdFromDatabase(id){
     fetch(`http://localhost:3000/favorites/${id}`).then(res=>res.json()).then(img =>{displayFavoriteImage(img);})
 }
 
 function displayFavoriteImage(im){
-    // currRandomTitle = image.title;
-    // currRandomDate = image.date;
-    // currRandomImage = image.image_url;
-    // currRandomDescription = image.description;
-
     date.innerText = `Date Photograph Captured: ${im.date.slice(0,10)}`;
     image.src=im.image_url;
     h1.innerText = im.title;
