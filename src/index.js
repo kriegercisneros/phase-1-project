@@ -83,11 +83,10 @@ function updateMediaLinks(imgUrl){
     twitter.href=`https://twitter.com/intent/tweet?url=${imgUrl}`
     
     linkedin.href=`https://www.linkedin.com/shareArticle?mini=1&url=${imgUrl}`
+    
     let subject = "Cool image!"
     mail.href=`mailto:?subject=${subject}&body=Check out this Image: ${imgUrl}`
     
-                       
-    console.log(imgUrl)
 }
 
 function populateDataWithRandObj(obj){
