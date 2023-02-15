@@ -4,6 +4,7 @@ let currRandomImage;
 let currRandomDescription;
 let currRandomDate; 
 let currRandomTitle;
+let currRandomKeywords;
 
 let currRandomId = 1;
 
@@ -110,8 +111,10 @@ function populateDataWithRandObj(obj){
     console.log(articleLink)
     updateMediaLinks(randomImage)
 
+    h3.innerHTML = ""
     randomKeywords.forEach((keyword) =>{
         let keywordLi = document.createElement('li');
+        keywordLi.id = "keyword-list"
         keywordLi.innerText = keyword;
         h3.appendChild(keywordLi) 
     })
@@ -120,6 +123,8 @@ function populateDataWithRandObj(obj){
     currRandomTitle = randomTitle;
     currRandomDescription = randomDescription;
     currRandomDate = randomDate;
+    currRandomKeywords = randomKeywords
+
 
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
     image.src=randomImage;
@@ -148,7 +153,7 @@ function populateDataWithRandObj(obj){
 }
 
 //pushes the favorites to db.json, which is hidded on GitHub
-function saveToFavorites(rImage, rDescription, rTitle, rDate, setId){
+function saveToFavorites(rImage, rDescription, rTitle, rDate, rKeywords, setId){
     return fetch("http://localhost:3000/favorites", {
         method:"POST",
         headers: {
@@ -161,6 +166,7 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate, setId){
             title:`${rTitle}`,
             date:`${rDate}`, 
             id:setId,
+            keywords: rKeywords,
           }),
         })
         .then(res=>res.json())  
@@ -218,7 +224,7 @@ function makingFavorite(img, id, doRandom){
 favButton.addEventListener('click', ()=>{
     let makingFavoriteId = makingFavorite("y","x",true);
     saveToFavorites(currRandomImage, currRandomDescription, 
-        currRandomTitle, currRandomDate, makingFavoriteId);
+        currRandomTitle, currRandomDate, currRandomKeywords, makingFavoriteId);
     currRandomId++
 })
 
@@ -286,6 +292,13 @@ function displayFavoriteImage(im){
     image.src=im.image_url;
     h1.innerText = im.title;
     p.innerText = `${im.description.slice(0, 200)}...`
+
+    h3.innerHTML = ""
+    im.keywords.forEach((keyword) =>{
+        let keywordLi = document.createElement('li');
+        keywordLi.innerText = keyword;
+        h3.appendChild(keywordLi) 
+    })
 }
 
 loadFavoritesFromDatabase();
