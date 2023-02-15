@@ -120,6 +120,13 @@ h1 {
   filter: drop-shadow(0 0 1.5em purple)
 }
 
+.post-share{
+  list-style-type: none;
+}
+.post-share li{
+  float:left;
+}
+
 #delete-btn{
   display:flex;
   justify-content: center;
