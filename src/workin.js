@@ -74,3 +74,4 @@ function loadFavorite(img, id){
         deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png"
     })
 }
+
