@@ -1,25 +1,5 @@
 {
   "favorites": [
-    {
-      "image_url": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001743/GSFC_20171208_Archive_e001743~thumb.jpg",
-      "description": "NASA image release April 27, 2012  The NASA/ESA Hubble Space Telescope has been at the cutting edge of research into what happens to stars like our sun at the ends of their lives. One stage that stars pass through as they run out of nuclear fuel is called the preplanetary or protoplanetary nebula stage. This Hubble image of the Egg Nebula shows one of the best views to date of this brief but dramatic phase in a star’s life.  The preplanetary nebula phase is a short period in the cycle of stellar evolution, and has nothing to do with planets. Over a few thousand years, the hot remains of the aging star in the center of the nebula heat it up, excite the gas, and make it glow as a subsequent planetary nebula. The short lifespan of preplanetary nebulae means there are relatively few of them in existence at any one time. Moreover, they are very dim, requiring powerful telescopes to be seen. This combination of rarity and faintness means they were only discovered comparatively recently. The Egg Nebula, the first to be discovered, was first spotted less than 40 years ago, and many aspects of this class of object remain shrouded in mystery.  At the center of this image, and hidden in a thick cloud of dust, is the nebula’s central star. While we can’t see the star directly, four searchlight beams of light coming from it shine out through the nebula. It is thought that ring-shaped holes in the thick cocoon of dust, carved by jets coming from the star, let the beams of light emerge through the otherwise opaque cloud. The precise mechanism by which stellar jets produce these holes is not known for certain, but one possible explanation is that a binary star system, rather than a single star, exists at the center of the nebula.  The onion-like layered structure of the more diffuse cloud surrounding the central cocoon is caused by periodic bursts of material being ejected from the dying star. The bursts typically occur every few hundred years.  The distance to the Egg Nebula is only known very approximately, the best guess placing it at around 3,000 light-years from Earth. This in turn means that astronomers do not have any accurate figures for the size of the nebula (it may be larger and further away, or smaller but nearer).  This image is produced from exposures in visible and infrared light from Hubble’s Wide Field Camera 3.  Credit: ESA/Hubble, NASA  <b><a href=\"http://www.nasa.gov/audience/formedia/features/MP_Photo_Guidelines.html\" rel=\"nofollow\">NASA image use policy.</a></b>  <b><a href=\"http://www.nasa.gov/centers/goddard/home/index.html\" rel=\"nofollow\">NASA Goddard Space Flight Center</a></b> enables NASA’s mission through four scientific endeavors: Earth Science, Heliophysics, Solar System Exploration, and Astrophysics. Goddard plays a leading role in NASA’s accomplishments by contributing compelling scientific knowledge to advance the Agency’s mission.  <b>Follow us on <a href=\"http://twitter.com/NASAGoddardPix\" rel=\"nofollow\">Twitter</a></b>  <b>Like us on <a href=\"http://www.facebook.com/pages/Greenbelt-MD/NASA-Goddard/395013845897?ref=tsd\" rel=\"nofollow\">Facebook</a></b>  <b>Find us on <a href=\"http://instagrid.me/nasagoddard/?vm=grid\" rel=\"nofollow\">Instagram</a></b>",
-      "title": "Hubble Images Searchlight Beams from a Preplanetary Nebula",
-      "date": "2017-12-08T00:00:00Z",
-      "id": "1"
-    },
-    {
-      "image_url": "https://images-assets.nasa.gov/image/0300724/0300724~thumb.jpg",
-      "description": "Some 5,000 light years (2,900 trillion miles) from Earth, in the constellation Puppis, is the 1.4 light years (more than 8 trillion miles) long Calabash Nebula, referred to as the Rotten Egg Nebula because of its sulfur content which would produce an awful odor if one could smell in space. This image of the nebula captured by NASA's Hubble Space Telescope (HST) depicts violent gas collisions that produced supersonic shock fronts in a dying star. Stars, like our sun, will eventually die and expel most of their material outward into shells of gas and dust These shells eventually form some of the most beautiful objects in the universe, called planetary nebulae. The yellow in the image depicts the material ejected from the central star zooming away at speeds up to one and a half million kilometers per hour (one million miles per hour). Due to the high speeds of the gas, shock-fronts are formed on impact and heat the surrounding gas. Although computer calculations have predicted the existence and structure of such shocks for some time, previous observations have not been able to prove the theory.",
-      "title": "History of Hubble Space Telescope (HST)",
-      "date": "2001-08-24T00:00:00Z",
-      "id": "4"
-    },
-    {
-      "image_url": "https://images-assets.nasa.gov/image/PIA09266/PIA09266~thumb.jpg",
-      "description": "NASA Spitzer Space Telescope surveyed the danger zones around five O-stars in the Rosette nebula. This artist animation illustrates how this process works. ",
-      "title": "Highway to the Danger Zone  Artist Concept",
-      "date": "2007-04-18T17:41:33Z",
-      "id": "5"
-    }
+
   ]
 }
