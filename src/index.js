@@ -84,9 +84,9 @@ function updateMediaLinks(imgUrl){
 
     twitter.href=`https://twitter.com/intent/tweet?url=${imgUrl}`
     
-    linkedin.href=`https://www.linkedin.com/shareArticle?mini=1&amp;url=${imgUrl}`
-    
-    mail.href=`mailto:?subject=First Time in France: Best 7-day Itinerary&amp;body=Check out this article: ${imgUrl}`
+    linkedin.href=`https://www.linkedin.com/shareArticle?mini=1&url=${imgUrl}`
+    let subject = "Cool image!"
+    mail.href=`mailto:?subject=${subject}&body=Check out this Image: ${imgUrl}`
     
                        
     console.log(imgUrl)
