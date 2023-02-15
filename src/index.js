@@ -22,6 +22,13 @@ let nebula = document.querySelector("#nebula")
 let liftoff = document.querySelector("#liftoff")
 let moon = document.querySelector("#moon")
 let deleteButton = document.querySelector("#delete")
+
+//Social media
+let twitter = document.querySelector("#twitter")
+let facebook = document.querySelector("#facebook")
+let linkedin = document.querySelector("#linkedin")
+let email = document.querySelector("#mail")
+
 //selects for user generated data
 const searchSubmit = document.querySelector('#search-bar');
 
@@ -65,9 +72,24 @@ deleteButton.addEventListener('click',(e)=>{
 
 
 
+
 //make this an inline function 
 function askForInput(){
     alert("Enter a space search")
+}
+
+function updateMediaLinks(imgUrl){
+    console.log(imgUrl)
+    facebook.href =`https://www.facebook.com/sharer/sharer.php?u=${imgUrl}` 
+
+    twitter.href=`https://twitter.com/intent/tweet?url=${imgUrl}`
+    
+    linkedin.href=`https://www.linkedin.com/shareArticle?mini=1&amp;url=${imgUrl}`
+    
+    mail.href=`mailto:?subject=First Time in France: Best 7-day Itinerary&amp;body=Check out this article: ${imgUrl}`
+    
+                       
+    console.log(imgUrl)
 }
 
 function populateDataWithRandObj(obj){
@@ -75,8 +97,10 @@ function populateDataWithRandObj(obj){
     let randomObject = array[Math.floor(Math.random()*array.length)]; //creates a random object from api
     let randomImage = randomObject.links[0].href; //selects link to random image
     let randomDescription = randomObject.data[0].description;
-
-
+    let articleId = randomObject.data[0].nasa_id
+    let articleLink = `https://images.nasa.gov/details-${articleId}`
+    console.log(articleLink)
+    updateMediaLinks(randomImage)
 //working on code for a more button for the description
 
     // let smRandomDescription = randomDescription.slice
