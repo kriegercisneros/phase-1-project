@@ -36,10 +36,12 @@ const searchSubmit = document.querySelector('#search-bar');
 let nav = document.querySelector('#favorites-list')
 const favButton = document.querySelector('#saved')
 
-let spanPoints = document.querySelector('#points');
+
 let moreText = document.querySelector('#more-text');
 let moreTextDisplayed = document.querySelector('#more-text-displayed');
 
+//functionality for submitting a search
+//brings up a random image from Nasa API 
 searchSubmit.addEventListener('submit', (event)=>{
     event.preventDefault();
     let userInput = searchInput.value;
@@ -56,6 +58,9 @@ searchSubmit.addEventListener('submit', (event)=>{
     }   
 })
 
+//Button Event Listeners
+//  these will generage a random search image
+//  for the user
 nebula.addEventListener('click', (e)=>{
     makeSearch("nebula")
 })
@@ -65,16 +70,16 @@ liftoff.addEventListener('click', (e)=>{
 moon.addEventListener('click', (e)=>{
     makeSearch("moon")
 })
-
 deleteButton.addEventListener('click',(e)=>{
     deleteAll()
     nav.innerHTML = ""
-
 })
+
 //make this an inline function 
 function askForInput(){
     alert("Enter a space search")
 }
+
 
 function updateMediaLinks(imgUrl){
     console.log(imgUrl)
@@ -89,6 +94,7 @@ function updateMediaLinks(imgUrl){
     
 }
 
+//this is the function that shows the user info from Nasa API
 function populateDataWithRandObj(obj){
     let array = obj.collection.items;//an array of objects
     let randomObject = array[Math.floor(Math.random()*array.length)]; //creates a random object from api
@@ -141,52 +147,7 @@ function populateDataWithRandObj(obj){
     }
 }
 
-
-favButton.addEventListener('click',(e)=>{
-    let newFavWrap = document.createElement('div');
-    newFavWrap.classList.add('fav-trash')
-
-    nav.appendChild(newFavWrap);
-
-    let newFav =document.createElement("img");
-    newFav.src = currRandomImage;
-    newFav.id = currRandomId;
-    newFav.classList.add('fav-images');
-    
-    newFavWrap.appendChild(newFav);
-    
-    saveToFavorites(currRandomImage, currRandomDescription, 
-        currRandomTitle, currRandomDate, newFav.id)
-    currRandomId++
-
-    let deleteBtn = document.createElement("img");
-    deleteBtn.classList.add("deleteFaveBtn")
-    deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
-    newFavWrap.appendChild(deleteBtn);
-
-    deleteBtn.addEventListener('click', (e)=>{
-        //removes the button and the image from the favorites list
-
-        let targetImg = e.target.previousElementSibling        
-        targetImg.remove();
-        deleteBtn.remove();
-        
-        fetch(`http://localhost:3000/favorites/${newFav.id}`, {
-            method:"DELETE",
-        })
-    })
-
-    deleteBtn.addEventListener('mouseover', (event)=>{
-        deleteBtn.src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png";
-        
-    })
-    deleteBtn.addEventListener('mouseout', (event)=>{
-        deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png"
-    })
-    
-})
-
-
+//pushes the favorites to db.json, which is hidded on GitHub
 function saveToFavorites(rImage, rDescription, rTitle, rDate, setId){
     return fetch("http://localhost:3000/favorites", {
         method:"POST",
@@ -202,33 +163,38 @@ function saveToFavorites(rImage, rDescription, rTitle, rDate, setId){
             id:setId,
           }),
         })
-        .then(res=>res.json())
-        
+        .then(res=>res.json())  
 }
 
+function makingFavorite(img, id, doRandom){
 
-function loadFavorite(img, id){
     let newFavWrap = document.createElement('div');
-    newFavWrap.classList.add('fav-trash')
+    newFavWrap.classList.add('fav-trash');
     nav.appendChild(newFavWrap);
 
     let newFav =document.createElement("img");
-    newFav.src = img;
-    newFav.id = id;
+    if(doRandom){
+    newFav.src = currRandomImage;
+    newFav.id = currRandomId;
+    }
+    else{
+        newFav.src = img;
+        newFav.id = id;
+    }
+    
+    newFav.classList.add('fav-images');
     
     newFavWrap.appendChild(newFav);
 
     let deleteBtn = document.createElement("img");
-    deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
-    deleteBtn.id = 'delete-btn';
     deleteBtn.classList.add("deleteFaveBtn")
+    deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png" 
     newFavWrap.appendChild(deleteBtn);
 
     deleteBtn.addEventListener('click', (e)=>{
         //removes the button and the image from the favorites list
-        // debugger
+
         let targetImg = e.target.previousElementSibling        
-       
         targetImg.remove();
         deleteBtn.remove();
         
@@ -238,18 +204,26 @@ function loadFavorite(img, id){
     })
     deleteBtn.addEventListener('mouseover', (event)=>{
         deleteBtn.src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png";
+        
     })
     deleteBtn.addEventListener('mouseout', (event)=>{
         deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png"
     })
+    return newFav.id
 }
 
+favButton.addEventListener('click', ()=>{
+    let makingFavoriteId = makingFavorite("y","x",true);
+    saveToFavorites(currRandomImage, currRandomDescription, 
+        currRandomTitle, currRandomDate, makingFavoriteId);
+    currRandomId++
+})
 
 function loadFavoritesArray(arr){
     arr.forEach(fave=>{
         let image = fave.image_url;
         let id = fave.id;
-        loadFavorite(image,id);
+        makingFavorite(image, id, false);
     })
     if (arr.length !== 0){
     currRandomId = parseInt(arr[arr.length - 1].id) + 1
@@ -259,15 +233,19 @@ function loadFavoritesArray(arr){
     }
 }
 
-
 function loadFavoritesFromDatabase(){
-    fetch("http://localhost:3000/favorites").then(res=>res.json()).then(arr=>{loadFavoritesArray(arr);console.log(arr)})
+    fetch("http://localhost:3000/favorites")
+    .then(res=>res.json())
+    .then(arr1=>{
+        loadFavoritesArray(arr1);
+        console.log(arr1)})
 }
 
- 
-
 function deleteAll(){
-    fetch("http://localhost:3000/favorites").then(res=>res.json()).then(arr=>{deleteImageByIdFromArray(arr)})
+    fetch("http://localhost:3000/favorites")
+    .then(res=>res.json())
+    .then(arr=>{
+        deleteImageByIdFromArray(arr)})
 }
 
 function deleteImageByIdFromArray(arr){
@@ -291,6 +269,5 @@ function makeSearch(q){
     })
 }
 
-loadFavoritesFromDatabase()
-makeSearch("nebula")
-//deleteAll()
+loadFavoritesFromDatabase();
+makeSearch("nebula");
