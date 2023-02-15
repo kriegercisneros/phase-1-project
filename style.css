@@ -41,11 +41,11 @@ body{
     height: 400px;
     justify-content: space-between;
     margin-top: 25px;
-   
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
 }
+
 
 .fav-trash{
   display: flex;
@@ -57,18 +57,16 @@ body{
   margin: 0px;
   margin-bottom: 25px;
 }
+.fav-trash:hover{
+  filter: drop-shadow(0 0 1.5em purple)
+}
 
 #image-container img {
     height: auto;
     margin: 7px;
     filter: drop-shadow(0 0 1em #B9C6DC);
-     
 }
-/* 
-img{
-    overflow-clip-margin: content-box;
-    overflow: clip;
-} */
+
 #image-display-h1 {
   color:#ECECEC; 
   padding: 20px
@@ -82,7 +80,7 @@ img{
   padding: 20px; 
   margin: 0px
 }
-#description-display-p{
+#description-display-p, #more-text-displayed{
   padding: 20px
 }
 
@@ -106,7 +104,7 @@ h1 {
 }
 
 #favorites-list img {
-    width: auto;
+    width: 150px;
     height: 150px;
     margin-right: -10px;
     margin-left: 20px
@@ -123,6 +121,9 @@ h1 {
   flex-direction:column
 }
 
+#favorites-list img.fav-images:hover{
+  filter: drop-shadow(0 0 1.5em purple)
+}
 
 #delete-btn{
   display:flex;
@@ -164,7 +165,7 @@ hr {
     border-style: inset;
     border-width: 1px;
     color: white
-    margin: -10px
+
 }
 
 
@@ -249,20 +250,22 @@ hr {
   form label {
     display: block;
   }
+
   #moreTextDisplayed{
     padding: 20px;
     margin: 20px;
   }
 
-#points, #more-text{
-  color: red; 
+#more-text{
+  color: purple; 
   padding: 20px; 
-  margin-left: 20px
+  margin-left: 0px; 
+  margin-top:-50px
 }
 
   #delete{
     display:flex;
-    color:red; 
+    color:purple; 
     padding: 15px;
     margin: 20px
   }

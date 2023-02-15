@@ -174,6 +174,7 @@ favButton.addEventListener('click',(e)=>{
 
     deleteBtn.addEventListener('mouseover', (event)=>{
         deleteBtn.src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png";
+        
     })
     deleteBtn.addEventListener('mouseout', (event)=>{
         deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png"
@@ -210,6 +211,7 @@ function loadFavorite(img, id){
     let newFav =document.createElement("img");
     newFav.src = img;
     newFav.id = id;
+    newFav.classList.add('fav-images')
     
     newFavWrap.appendChild(newFav);
 
