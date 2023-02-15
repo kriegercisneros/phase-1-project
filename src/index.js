@@ -36,7 +36,9 @@ const searchSubmit = document.querySelector('#search-bar');
 let nav = document.querySelector('#favorites-list')
 const favButton = document.querySelector('#saved')
 
-//variables to point to user Id form 
+let spanPoints = document.querySelector('#points');
+let moreText = document.querySelector('#more-text');
+let moreTextDisplayed = document.querySelector('#more-text-displayed');
 
 searchSubmit.addEventListener('submit', (event)=>{
     event.preventDefault();
@@ -131,19 +133,43 @@ function populateDataWithRandObj(obj){
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
     image.src=randomImage;
     h1.innerText = randomTitle;
-    p.innerText=randomDescription;
-    // p.appendChild(aDescription)
+    // p.innerText=randomDescription;
 
+    p.innerText = `${randomDescription.slice(0, 200)}...` 
     
-}
+    // moreTextDisplayed.innerText = randomDescription.slice(200, randomDescription.length -1)
 
+moreText.addEventListener('click', (e)=>{
+    toggleText()
+})    
+
+function toggleText(){
+    // p.innerText='';
+    // moreTextDisplayed.innerText = randomDescription
+
+    if (moreText.innerText ==="show more") {
+       
+        moreTextDisplayed.innerText = randomDescription;
+        moreTextDisplayed.style.display = "inline";
+        p.style.display ='none'
+        moreText.innerText = "show less";
+        console.log(moreText.innerText)
+    }
+    else {
+        moreTextDisplayed.style.display = "none";
+        p.innerText = `${randomDescription.slice(0, 200)}...`;
+        p.style.display="inline";
+        moreText.innerText="show more";
+    }    
+}
+}
 favButton.addEventListener('click',(e)=>{
     let newFavWrap = document.createElement('div');
     nav.appendChild(newFavWrap);
 
     let newFav =document.createElement("img");
     newFav.src = currRandomImage;
-    console.log("ID added to new image"+currRandomId)
+    // console.log("ID added to new image"+currRandomId)
     newFav.id = currRandomId;
     
     newFavWrap.appendChild(newFav);
@@ -172,6 +198,7 @@ favButton.addEventListener('click',(e)=>{
 
     deleteBtn.addEventListener('mouseover', (event)=>{
         deleteBtn.src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png";
+        
     })
     deleteBtn.addEventListener('mouseout', (event)=>{
         deleteBtn.src = "https://cdn-icons-png.flaticon.com/512/4441/4441955.png"
@@ -208,6 +235,7 @@ function loadFavorite(img, id){
     let newFav =document.createElement("img");
     newFav.src = img;
     newFav.id = id;
+    newFav.classList.add('fav-images')
     
     newFavWrap.appendChild(newFav);
 
@@ -250,7 +278,7 @@ function loadFavoritesArray(arr){
     else{
         currRandomId = 1
     }
-    console.log(currRandomId)
+    // console.log(currRandomId)
 }
 
 
