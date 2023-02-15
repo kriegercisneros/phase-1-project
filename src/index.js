@@ -144,6 +144,8 @@ function populateDataWithRandObj(obj){
 
 favButton.addEventListener('click',(e)=>{
     let newFavWrap = document.createElement('div');
+    newFavWrap.classList.add('fav-trash')
+
     nav.appendChild(newFavWrap);
 
     let newFav =document.createElement("img");
