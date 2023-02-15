@@ -1,15 +1,5 @@
 {
   "favorites": [
-    {
-      "image_url": "https://images-assets.nasa.gov/image/PIA03606/PIA03606~thumb.jpg",
-      "description": "The Crab Nebula is one of the most intricately structured and highly  dynamical objects ever observed. The new Hubble image of the Crab was  assembled from 24 individual exposures taken with the NASA/ESA Hubble  Space Telescope",
-      "title": "Most Detailed Image of the Crab Nebula",
-      "date": "2005-12-01T21:09:21Z",
-      "id": "8",
-      "keywords": [
-        "Crab Nebula",
-        "Hubble Space Telescope"
-      ]
-    }
+
   ]
 }
