@@ -71,10 +71,6 @@ deleteButton.addEventListener('click',(e)=>{
     nav.innerHTML = ""
 
 })
-
-
-
-
 //make this an inline function 
 function askForInput(){
     alert("Enter a space search")
@@ -89,8 +85,7 @@ function updateMediaLinks(imgUrl){
     linkedin.href=`https://www.linkedin.com/shareArticle?mini=1&amp;url=${imgUrl}`
     
     mail.href=`mailto:?subject=First Time in France: Best 7-day Itinerary&amp;body=Check out this article: ${imgUrl}`
-    
-                       
+            
     console.log(imgUrl)
 }
 
@@ -101,76 +96,60 @@ function populateDataWithRandObj(obj){
     let randomDescription = randomObject.data[0].description;
     let articleId = randomObject.data[0].nasa_id
     let articleLink = `https://images.nasa.gov/details-${articleId}`
+    
+    let randomTitle = randomObject.data[0].title;
+    let randomDate = randomObject.data[0]['date_created'];
+    let randomKeywords = randomObject.data[0].keywords;
+
     console.log(articleLink)
     updateMediaLinks(randomImage)
-//working on code for a more button for the description
 
-    // let smRandomDescription = randomDescription.slice
-    // (0, randomDescription.indexOf('.'));
-    // let spanDescription     
-    // let aDescription = document.createElement('a');
-    // aDescription.innerText = 'More';
-    // aDescription.href= 'www.google.com';
-
-    let randomTitle = randomObject.data[0].title;
-    
-    let randomKeywords = randomObject.data[0].keywords
     randomKeywords.forEach((keyword) =>{
         let keywordLi = document.createElement('li');
         keywordLi.innerText = keyword;
-        h3.appendChild(keywordLi)
-        
+        h3.appendChild(keywordLi) 
     })
-
-    let randomDate = randomObject.data[0]['date_created'];
 
     currRandomImage = randomImage;
     currRandomTitle = randomTitle;
     currRandomDescription = randomDescription;
     currRandomDate = randomDate;
-    
-    
+
     date.innerText = `Date Photograph Captured: ${randomDate.slice(0,10)}`;
     image.src=randomImage;
     h1.innerText = randomTitle;
-    // p.innerText=randomDescription;
-
     p.innerText = `${randomDescription.slice(0, 200)}...` 
-    
-    // moreTextDisplayed.innerText = randomDescription.slice(200, randomDescription.length -1)
 
-moreText.addEventListener('click', (e)=>{
-    toggleText()
-})    
+    moreText.addEventListener('click', (e)=>{
+        toggleText()
+    })    
 
-function toggleText(){
-    // p.innerText='';
-    // moreTextDisplayed.innerText = randomDescription
-
-    if (moreText.innerText ==="show more") {
-       
-        moreTextDisplayed.innerText = randomDescription;
-        moreTextDisplayed.style.display = "inline";
-        p.style.display ='none'
-        moreText.innerText = "show less";
-        console.log(moreText.innerText)
+    function toggleText(){
+        if (moreText.innerText ==="show more") {
+            moreTextDisplayed.innerText = randomDescription;
+            moreTextDisplayed.style.display = "inline";
+            p.style.display ='none'
+            moreText.innerText = "show less";
+            console.log(moreText.innerText)
+        }
+        else {
+            moreTextDisplayed.style.display = "none";
+            p.innerText = `${randomDescription.slice(0, 200)}...`;
+            p.style.display="inline";
+            moreText.innerText="show more";
+        }    
     }
-    else {
-        moreTextDisplayed.style.display = "none";
-        p.innerText = `${randomDescription.slice(0, 200)}...`;
-        p.style.display="inline";
-        moreText.innerText="show more";
-    }    
 }
-}
+
+
 favButton.addEventListener('click',(e)=>{
     let newFavWrap = document.createElement('div');
     nav.appendChild(newFavWrap);
 
     let newFav =document.createElement("img");
     newFav.src = currRandomImage;
-    // console.log("ID added to new image"+currRandomId)
     newFav.id = currRandomId;
+    newFav.classList.add('fav-images');
     
     newFavWrap.appendChild(newFav);
     
@@ -187,7 +166,6 @@ favButton.addEventListener('click',(e)=>{
         //removes the button and the image from the favorites list
 
         let targetImg = e.target.previousElementSibling        
-       
         targetImg.remove();
         deleteBtn.remove();
         
@@ -235,7 +213,6 @@ function loadFavorite(img, id){
     let newFav =document.createElement("img");
     newFav.src = img;
     newFav.id = id;
-    newFav.classList.add('fav-images')
     
     newFavWrap.appendChild(newFav);
 
@@ -278,7 +255,6 @@ function loadFavoritesArray(arr){
     else{
         currRandomId = 1
     }
-    // console.log(currRandomId)
 }
 
 
