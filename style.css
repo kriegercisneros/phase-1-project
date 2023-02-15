@@ -7,7 +7,6 @@ body{
     margin: 8px;
 }
 
-
 #top-buttons{
   display: flex;
   text-overflow: hidden;
@@ -129,26 +128,6 @@ h1 {
   margin: 0px
 }
 
-/* working code for a 3x3 flexbox */
-/* div#favorites-list{
-    display: flex;
-    margin: 10px 0 0;
-    float: none;
-    clear: both;
-    width: 100%;
-    position: relative;
-    padding-right: 15px;
-    padding-left: 15px;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    border: 5px solid 
-    #81AEFB;
-    margin: 5px;
-} */
-
 
 hr {
     display: block;
@@ -161,12 +140,8 @@ hr {
     border-style: inset;
     border-width: 1px;
     color: white
-
 }
 
-
-
-/*This is where Preston's css starts*/
 #stars {
     display: flex;
     justify-content: center;
