@@ -249,6 +249,16 @@ hr {
   form label {
     display: block;
   }
+  #moreTextDisplayed{
+    padding: 20px;
+    margin: 20px;
+  }
+
+#points, #more-text{
+  color: red; 
+  padding: 20px; 
+  margin-left: 20px
+}
 
   #delete{
     display:flex;
